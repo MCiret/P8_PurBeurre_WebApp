@@ -117,6 +117,15 @@
         "url": "https://fr.openfoodfacts.org/produit/3251490307002/gouter-pepites-de-chocolat-gerble"
     },
     {
+        "_id": "3175680011442",
+        "compared_to_category": "en:breakfast-biscuit",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/317/568/001/1442/front_fr.143.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/317/568/001/1442/nutrition_fr.138.200.jpg",
+        "nutriscore_grade": "c",
+        "product_name": "Biscuit soja orange",
+        "url": "https://fr.openfoodfacts.org/produit/3175680011442/biscuit-soja-orange-gerble"
+    },
+    {
         "_id": "3251490320001",
         "compared_to_category": "en:biscuits",
         "image_front_url": "https://static.openfoodfacts.org/images/products/325/149/032/0001/front_fr.112.400.jpg",
@@ -959,8 +968,8 @@
         "image_front_url": "https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.112.400.jpg",
         "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/350/211/000/9449/nutrition_fr.114.200.jpg",
         "nutriscore_grade": "c",
-        "product_name": "Tropicana Pure premium orange sans pulpe 1 L",
-        "url": "https://fr.openfoodfacts.org/produit/3502110009449/tropicana-pure-premium-orange-sans-pulpe-1-l"
+        "product_name": "Oranges pressées sans pulpe",
+        "url": "https://fr.openfoodfacts.org/produit/3502110009449/oranges-pressees-sans-pulpe-tropicana"
     },
     {
         "_id": "7613036249928",
@@ -2397,8 +2406,8 @@
         "_id": "3450160007024",
         "compared_to_category": "fr:saucisses-seches",
         "image_front_url": "https://static.openfoodfacts.org/images/products/345/016/000/7024/front_fr.57.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/345/016/000/7024/nutrition_fr.59.200.jpg",
-        "nutriscore_grade": "d",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/345/016/000/7024/nutrition_fr.65.200.jpg",
+        "nutriscore_grade": "e",
         "product_name": "Saint agaune",
         "url": "https://fr.openfoodfacts.org/produit/3450160007024/saint-agaune"
     },
@@ -3421,7 +3430,7 @@
     },
     {
         "_id": "8000430138719",
-        "compared_to_category": "en:mozzarella",
+        "compared_to_category": "en:cow-mozzarella",
         "image_front_url": "https://static.openfoodfacts.org/images/products/800/043/013/8719/front_fr.68.400.jpg",
         "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/800/043/013/8719/nutrition_fr.113.200.jpg",
         "nutriscore_grade": "c",
@@ -4601,11 +4610,11 @@
     {
         "_id": "3760020505936",
         "compared_to_category": "en:vegetable-bouillon-cubes",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/376/002/050/5936/front_fr.94.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/376/002/050/5936/nutrition_fr.91.200.jpg",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/376/002/050/5936/front_fr.97.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/376/002/050/5936/nutrition_fr.99.200.jpg",
         "nutriscore_grade": "b",
-        "product_name": "Bouillon cube Légumes sans sel",
-        "url": "https://fr.openfoodfacts.org/produit/3760020505936/bouillon-cube-legumes-sans-sel-jardin-bio"
+        "product_name": "Bouillon cube sans sel",
+        "url": "https://fr.openfoodfacts.org/produit/3760020505936/bouillon-cube-sans-sel-jardin-bio"
     },
     {
         "_id": "3478822005249",
@@ -5868,15 +5877,6 @@
         "url": "https://fr.openfoodfacts.org/produit/5900130030630/glace-nuii"
     },
     {
-        "_id": "8712566328406",
-        "compared_to_category": "en:vanilla-ice-cream-bars",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/256/632/8406/front_fr.65.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/256/632/8406/nutrition_fr.55.200.jpg",
-        "nutriscore_grade": "d",
-        "product_name": "MAGNUM Glace Bâtonnet Chocolat Blanc 4x110ml",
-        "url": "https://fr.openfoodfacts.org/produit/8712566328406/magnum-glace-batonnet-chocolat-blanc-4x110ml-miko"
-    },
-    {
         "_id": "3415581319002",
         "compared_to_category": "en:ice-cream-tubs",
         "image_front_url": "https://static.openfoodfacts.org/images/products/341/558/131/9002/front_fr.18.400.jpg",
@@ -5886,13 +5886,13 @@
         "url": "https://fr.openfoodfacts.org/produit/3415581319002/macadamia-nut-brittle-haagen-dazs"
     },
     {
-        "_id": "8711200590810",
-        "compared_to_category": "fr:glace-pot",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/120/059/0810/front_fr.69.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/120/059/0810/nutrition_fr.11.200.jpg",
-        "nutriscore_grade": "e",
-        "product_name": "Ben & Jerry's Glace Pot Peanut Butter Cup Cacahuète",
-        "url": "https://fr.openfoodfacts.org/produit/8711200590810/ben-jerry-s-glace-pot-peanut-butter-cup-cacahuete"
+        "_id": "8712566328406",
+        "compared_to_category": "en:vanilla-ice-cream-bars",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/256/632/8406/front_fr.65.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/256/632/8406/nutrition_fr.55.200.jpg",
+        "nutriscore_grade": "d",
+        "product_name": "MAGNUM Glace Bâtonnet Chocolat Blanc 4x110ml",
+        "url": "https://fr.openfoodfacts.org/produit/8712566328406/magnum-glace-batonnet-chocolat-blanc-4x110ml-miko"
     },
     {
         "_id": "5900130030982",
@@ -5902,6 +5902,15 @@
         "nutriscore_grade": "e",
         "product_name": "Nuii amande & vanille de java",
         "url": "https://fr.openfoodfacts.org/produit/5900130030982/nuii-amande-vanille-de-java"
+    },
+    {
+        "_id": "8711200590810",
+        "compared_to_category": "fr:glace-pot",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/120/059/0810/front_fr.69.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/120/059/0810/nutrition_fr.11.200.jpg",
+        "nutriscore_grade": "e",
+        "product_name": "Ben & Jerry's Glace Pot Peanut Butter Cup Cacahuète",
+        "url": "https://fr.openfoodfacts.org/produit/8711200590810/ben-jerry-s-glace-pot-peanut-butter-cup-cacahuete"
     },
     {
         "_id": "8712100879531",
@@ -5922,6 +5931,15 @@
         "url": "https://fr.openfoodfacts.org/produit/8714100638729/glace-bio-vanille-douce-de-sava-carte-d-or"
     },
     {
+        "_id": "3415581314717",
+        "compared_to_category": "en:ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/341/558/131/4717/front_fr.23.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/341/558/131/4717/nutrition_fr.30.200.jpg",
+        "nutriscore_grade": "e",
+        "product_name": "Caramel au beurre salé",
+        "url": "https://fr.openfoodfacts.org/produit/3415581314717/caramel-au-beurre-sale-haagen-dazs"
+    },
+    {
         "_id": "8000920500224",
         "compared_to_category": "en:ice-cream-bars",
         "image_front_url": "https://static.openfoodfacts.org/images/products/800/092/050/0224/front_fr.30.400.jpg",
@@ -5938,15 +5956,6 @@
         "nutriscore_grade": "c",
         "product_name": "Viennetta Biscuit Caramel",
         "url": "https://fr.openfoodfacts.org/produit/8711200607198/viennetta-biscuit-caramel"
-    },
-    {
-        "_id": "3415581314717",
-        "compared_to_category": "en:ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/341/558/131/4717/front_fr.23.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/341/558/131/4717/nutrition_fr.30.200.jpg",
-        "nutriscore_grade": "e",
-        "product_name": "Caramel au beurre salé",
-        "url": "https://fr.openfoodfacts.org/produit/3415581314717/caramel-au-beurre-sale-haagen-dazs"
     },
     {
         "_id": "3033210003339",
@@ -6048,6 +6057,15 @@
         "url": "https://fr.openfoodfacts.org/produit/8712100482199/carte-d-or-glace-vanille-noix-de-pecan-900ml"
     },
     {
+        "_id": "8711327384682",
+        "compared_to_category": "en:ice-cream-bars",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/738/4682/front_fr.31.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/738/4682/nutrition_fr.13.200.jpg",
+        "nutriscore_grade": "d",
+        "product_name": "MAGNUM Glace Bâtonnet Ruby 4x90ml",
+        "url": "https://fr.openfoodfacts.org/produit/8711327384682/magnum-glace-batonnet-ruby-4x90ml"
+    },
+    {
         "_id": "3415581571110",
         "compared_to_category": "en:ice-cream-tubs",
         "image_front_url": "https://static.openfoodfacts.org/images/products/341/558/157/1110/front_fr.42.400.jpg",
@@ -6064,24 +6082,6 @@
         "nutriscore_grade": "d",
         "product_name": "Crème glacée cookie dough chip",
         "url": "https://fr.openfoodfacts.org/produit/3415581154719/creme-glacee-cookie-dough-chip-haagen-dazs"
-    },
-    {
-        "_id": "8711327384682",
-        "compared_to_category": "en:ice-cream-bars",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/738/4682/front_fr.31.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/738/4682/nutrition_fr.13.200.jpg",
-        "nutriscore_grade": "d",
-        "product_name": "MAGNUM Glace Bâtonnet Ruby 4x90ml",
-        "url": "https://fr.openfoodfacts.org/produit/8711327384682/magnum-glace-batonnet-ruby-4x90ml"
-    },
-    {
-        "_id": "1230000022019",
-        "compared_to_category": "en:vanilla-ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/123/000/002/2019/front_fr.51.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/123/000/002/2019/nutrition_fr.53.200.jpg",
-        "nutriscore_grade": "c",
-        "product_name": "Vanilla bean",
-        "url": "https://fr.openfoodfacts.org/produit/1230000022019/vanilla-bean"
     },
     {
         "_id": "8712566404629",
@@ -6102,6 +6102,15 @@
         "url": "https://fr.openfoodfacts.org/produit/8714100646663/kinder-glace-batonnet-chocolat-au-lait-10x36ml"
     },
     {
+        "_id": "1230000022019",
+        "compared_to_category": "en:vanilla-ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/123/000/002/2019/front_fr.51.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/123/000/002/2019/nutrition_fr.53.200.jpg",
+        "nutriscore_grade": "c",
+        "product_name": "Vanilla bean",
+        "url": "https://fr.openfoodfacts.org/produit/1230000022019/vanilla-bean"
+    },
+    {
         "_id": "3270160841165",
         "compared_to_category": "en:vanilla-ice-cream-tubs",
         "image_front_url": "https://static.openfoodfacts.org/images/products/327/016/084/1165/front_fr.29.400.jpg",
@@ -6120,13 +6129,13 @@
         "url": "https://fr.openfoodfacts.org/produit/5000159436489/mars-glace"
     },
     {
-        "_id": "5411188126270",
-        "compared_to_category": "en:plant-based-ice-creams",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/541/118/812/6270/front_fr.4.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/541/118/812/6270/nutrition_fr.25.200.jpg",
-        "nutriscore_grade": "b",
-        "product_name": "Alpro - Madagascan vanilla",
-        "url": "https://fr.openfoodfacts.org/produit/5411188126270/alpro-vanilla"
+        "_id": "8711327374515",
+        "compared_to_category": "en:luxury-ice-cream-in-a-cup",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/737/4515/front_fr.63.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/737/4515/nutrition_fr.60.200.jpg",
+        "nutriscore_grade": "d",
+        "product_name": "Ben & Jerry's Glace en Pot Peanut Butter Cup 465ml",
+        "url": "https://fr.openfoodfacts.org/produit/8711327374515/ben-jerry-s-glace-en-pot-peanut-butter-cup-465ml"
     },
     {
         "_id": "8712100324246",
@@ -6138,13 +6147,13 @@
         "url": "https://fr.openfoodfacts.org/produit/8712100324246/viennetta-dessert-glace-parfum-vanille-cacao-craquant-7-parts-650ml-miko"
     },
     {
-        "_id": "8711327374515",
-        "compared_to_category": "en:luxury-ice-cream-in-a-cup",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/737/4515/front_fr.63.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/737/4515/nutrition_fr.60.200.jpg",
-        "nutriscore_grade": "d",
-        "product_name": "Ben & Jerry's Glace en Pot Peanut Butter Cup 465ml",
-        "url": "https://fr.openfoodfacts.org/produit/8711327374515/ben-jerry-s-glace-en-pot-peanut-butter-cup-465ml"
+        "_id": "5411188126270",
+        "compared_to_category": "en:plant-based-ice-creams",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/541/118/812/6270/front_fr.4.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/541/118/812/6270/nutrition_fr.25.200.jpg",
+        "nutriscore_grade": "b",
+        "product_name": "Alpro - Madagascan vanilla",
+        "url": "https://fr.openfoodfacts.org/produit/5411188126270/alpro-vanilla"
     },
     {
         "_id": "20001308",
@@ -6156,15 +6165,6 @@
         "url": "https://fr.openfoodfacts.org/produit/20001308/almond-gelatelli"
     },
     {
-        "_id": "7613035888265",
-        "compared_to_category": "en:ice-creams",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/761/303/588/8265/front_fr.16.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/761/303/588/8265/nutrition_fr.14.200.jpg",
-        "nutriscore_grade": "d",
-        "product_name": "extrême Fraise-Vanille sauce aux fruits rouges x6",
-        "url": "https://fr.openfoodfacts.org/produit/7613035888265/extreme-fraise-vanille-sauce-aux-fruits-rouges-x6-nestle"
-    },
-    {
         "_id": "8711327321045",
         "compared_to_category": "en:ice-cream-tubs",
         "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/732/1045/front_fr.36.400.jpg",
@@ -6172,6 +6172,15 @@
         "nutriscore_grade": "d",
         "product_name": "Ben & Jerry's Glace Mini Pots The Cookie & Brownie Cool-lection 4x100ml",
         "url": "https://fr.openfoodfacts.org/produit/8711327321045/ben-jerry-s-glace-mini-pots-the-cookie-brownie-cool-lection-4x100ml"
+    },
+    {
+        "_id": "7613035888265",
+        "compared_to_category": "en:ice-creams",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/761/303/588/8265/front_fr.16.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/761/303/588/8265/nutrition_fr.14.200.jpg",
+        "nutriscore_grade": "d",
+        "product_name": "extrême Fraise-Vanille sauce aux fruits rouges x6",
+        "url": "https://fr.openfoodfacts.org/produit/7613035888265/extreme-fraise-vanille-sauce-aux-fruits-rouges-x6-nestle"
     },
     {
         "_id": "8714100691496",
@@ -6228,15 +6237,6 @@
         "url": "https://fr.openfoodfacts.org/produit/4056489223368/premium-almond-lidl"
     },
     {
-        "_id": "3256221116045",
-        "compared_to_category": "en:vanilla-ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/325/622/111/6045/front_fr.40.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/325/622/111/6045/nutrition_fr.38.200.jpg",
-        "nutriscore_grade": "c",
-        "product_name": "Crème glacée à la vanille de Madagascar",
-        "url": "https://fr.openfoodfacts.org/produit/3256221116045/creme-glacee-a-la-vanille-de-madagascar-u-bio"
-    },
-    {
         "_id": "7613035452930",
         "compared_to_category": "fr:cones-et-batonnets-surgeles",
         "image_front_url": "https://static.openfoodfacts.org/images/products/761/303/545/2930/front_fr.29.400.jpg",
@@ -6255,13 +6255,13 @@
         "url": "https://fr.openfoodfacts.org/produit/8712566340279/magnum-classic-miko"
     },
     {
-        "_id": "8714100638736",
-        "compared_to_category": "en:chocolate-ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/410/063/8736/front_fr.57.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/410/063/8736/nutrition_fr.58.200.jpg",
+        "_id": "3256221116045",
+        "compared_to_category": "en:vanilla-ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/325/622/111/6045/front_fr.40.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/325/622/111/6045/nutrition_fr.38.200.jpg",
         "nutriscore_grade": "c",
-        "product_name": "Carte D'or Glace Cacao Corsé du Pérou 450ml",
-        "url": "https://fr.openfoodfacts.org/produit/8714100638736/carte-d-or-glace-cacao-corse-du-perou-450ml"
+        "product_name": "Crème glacée à la vanille de Madagascar",
+        "url": "https://fr.openfoodfacts.org/produit/3256221116045/creme-glacee-a-la-vanille-de-madagascar-u-bio"
     },
     {
         "_id": "5411188123460",
@@ -6282,31 +6282,13 @@
         "url": "https://fr.openfoodfacts.org/produit/3270160730902/le-yaourt-picard"
     },
     {
-        "_id": "3560070682027",
-        "compared_to_category": "en:vanilla-ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/356/007/068/2027/front_fr.38.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/356/007/068/2027/nutrition_fr.24.200.jpg",
-        "nutriscore_grade": "d",
-        "product_name": "Vanille de Madagascar",
-        "url": "https://fr.openfoodfacts.org/produit/3560070682027/vanille-de-madagascar-carrefour-bio"
-    },
-    {
-        "_id": "5060191280105",
-        "compared_to_category": "en:ice-pops",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/506/019/128/0105/front_fr.6.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/506/019/128/0105/nutrition_fr.40.200.jpg",
-        "nutriscore_grade": "b",
-        "product_name": "Mr.freeze",
-        "url": "https://fr.openfoodfacts.org/produit/5060191280105/mr-freeze"
-    },
-    {
-        "_id": "7613034522146",
-        "compared_to_category": "en:ice-pops",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/761/303/452/2146/front_fr.8.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/761/303/452/2146/nutrition_fr.23.200.jpg",
+        "_id": "8714100638736",
+        "compared_to_category": "en:chocolate-ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/410/063/8736/front_fr.57.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/410/063/8736/nutrition_fr.58.200.jpg",
         "nutriscore_grade": "c",
-        "product_name": "Happy Pirulo",
-        "url": "https://fr.openfoodfacts.org/produit/7613034522146/happy-pirulo-nestle"
+        "product_name": "Carte D'or Glace Cacao Corsé du Pérou 450ml",
+        "url": "https://fr.openfoodfacts.org/produit/8714100638736/carte-d-or-glace-cacao-corse-du-perou-450ml"
     },
     {
         "_id": "8712100871320",
@@ -6318,6 +6300,33 @@
         "url": "https://fr.openfoodfacts.org/produit/8712100871320/ben-jerry-s-glace-pot-vanille-pecan-blondie"
     },
     {
+        "_id": "8711327383920",
+        "compared_to_category": "en:ice-cream-bars",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/738/3920/front_fr.3.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/738/3920/nutrition_fr.14.200.jpg",
+        "nutriscore_grade": "e",
+        "product_name": "Magnum Ruby",
+        "url": "https://fr.openfoodfacts.org/produit/8711327383920/magnum-ruby"
+    },
+    {
+        "_id": "3560070682027",
+        "compared_to_category": "en:vanilla-ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/356/007/068/2027/front_fr.38.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/356/007/068/2027/nutrition_fr.24.200.jpg",
+        "nutriscore_grade": "d",
+        "product_name": "Vanille de Madagascar",
+        "url": "https://fr.openfoodfacts.org/produit/3560070682027/vanille-de-madagascar-carrefour-bio"
+    },
+    {
+        "_id": "7613034522146",
+        "compared_to_category": "en:ice-pops",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/761/303/452/2146/front_fr.8.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/761/303/452/2146/nutrition_fr.23.200.jpg",
+        "nutriscore_grade": "c",
+        "product_name": "Happy Pirulo",
+        "url": "https://fr.openfoodfacts.org/produit/7613034522146/happy-pirulo-nestle"
+    },
+    {
         "_id": "8711327331440",
         "compared_to_category": "en:lemon-sorbets",
         "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/733/1440/front_fr.47.400.jpg",
@@ -6325,6 +6334,15 @@
         "nutriscore_grade": "c",
         "product_name": "Sorbet Bio Citron de Sicile",
         "url": "https://fr.openfoodfacts.org/produit/8711327331440/sorbet-bio-citron-de-sicile-carte-d-or"
+    },
+    {
+        "_id": "5060191280105",
+        "compared_to_category": "en:ice-pops",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/506/019/128/0105/front_fr.6.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/506/019/128/0105/nutrition_fr.40.200.jpg",
+        "nutriscore_grade": "b",
+        "product_name": "Mr.freeze",
+        "url": "https://fr.openfoodfacts.org/produit/5060191280105/mr-freeze"
     },
     {
         "_id": "8711327386334",
@@ -6336,13 +6354,13 @@
         "url": "https://fr.openfoodfacts.org/produit/8711327386334/ben-jerry-s-glace-en-pot-netflix-chilll-d-465ml"
     },
     {
-        "_id": "8711327383920",
-        "compared_to_category": "en:ice-cream-bars",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/738/3920/front_fr.3.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/738/3920/nutrition_fr.14.200.jpg",
-        "nutriscore_grade": "e",
-        "product_name": "Magnum Ruby",
-        "url": "https://fr.openfoodfacts.org/produit/8711327383920/magnum-ruby"
+        "_id": "8711327385887",
+        "compared_to_category": "en:vanilla-ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/738/5887/front_fr.41.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/738/5887/nutrition_fr.39.200.jpg",
+        "nutriscore_grade": "c",
+        "product_name": "Carte D'or Glace Crème de Vanille de Madagascar 900ml",
+        "url": "https://fr.openfoodfacts.org/produit/8711327385887/carte-d-or-glace-creme-de-vanille-de-madagascar-900ml"
     },
     {
         "_id": "3270160730933",
@@ -6354,24 +6372,6 @@
         "url": "https://fr.openfoodfacts.org/produit/3270160730933/la-tonique-pamplemousse-orange-sanguine-picard"
     },
     {
-        "_id": "8711327374904",
-        "compared_to_category": "en:ice-creams",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/737/4904/front_fr.60.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/737/4904/nutrition_fr.58.200.jpg",
-        "nutriscore_grade": "d",
-        "product_name": "Ben & Jerry's Glace en Pot Vegan Cookies on Cookie Dough 465ml",
-        "url": "https://fr.openfoodfacts.org/produit/8711327374904/ben-jerry-s-glace-en-pot-vegan-cookies-on-cookie-dough-465ml"
-    },
-    {
-        "_id": "8711327385887",
-        "compared_to_category": "en:vanilla-ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/738/5887/front_fr.41.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/738/5887/nutrition_fr.39.200.jpg",
-        "nutriscore_grade": "c",
-        "product_name": "Carte D'or Glace Crème de Vanille de Madagascar 900ml",
-        "url": "https://fr.openfoodfacts.org/produit/8711327385887/carte-d-or-glace-creme-de-vanille-de-madagascar-900ml"
-    },
-    {
         "_id": "1230000022057",
         "compared_to_category": "en:ice-cream-tubs",
         "image_front_url": "https://static.openfoodfacts.org/images/products/123/000/002/2057/front_fr.4.400.jpg",
@@ -6379,6 +6379,15 @@
         "nutriscore_grade": "c",
         "product_name": "Peanut Butter Cup Ice Cream",
         "url": "https://fr.openfoodfacts.org/produit/1230000022057/peanut-butter-cup-halo-top"
+    },
+    {
+        "_id": "8711327374904",
+        "compared_to_category": "en:ice-creams",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/737/4904/front_fr.60.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/737/4904/nutrition_fr.58.200.jpg",
+        "nutriscore_grade": "d",
+        "product_name": "Ben & Jerry's Glace en Pot Vegan Cookies on Cookie Dough 465ml",
+        "url": "https://fr.openfoodfacts.org/produit/8711327374904/ben-jerry-s-glace-en-pot-vegan-cookies-on-cookie-dough-465ml"
     },
     {
         "_id": "3564707092098",
@@ -6390,24 +6399,6 @@
         "url": "https://fr.openfoodfacts.org/produit/3564707092098/vrac-creme-glacee-vanille-bourbon-bio-bio-village"
     },
     {
-        "_id": "3270160840229",
-        "compared_to_category": "en:chocolate-ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/327/016/084/0229/front_fr.8.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/327/016/084/0229/nutrition_fr.25.200.jpg",
-        "nutriscore_grade": "d",
-        "product_name": "Le Chocolat - Pure Sélection",
-        "url": "https://fr.openfoodfacts.org/produit/3270160840229/le-chocolat-pure-selection-picard"
-    },
-    {
-        "_id": "3270160840793",
-        "compared_to_category": "en:vanilla-ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/327/016/084/0793/front_fr.8.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/327/016/084/0793/nutrition_fr.15.200.jpg",
-        "nutriscore_grade": "c",
-        "product_name": "Crème glacée vanille",
-        "url": "https://fr.openfoodfacts.org/produit/3270160840793/creme-glacee-vanille-picard"
-    },
-    {
         "_id": "7613035468535",
         "compared_to_category": "en:ice-cream-cones",
         "image_front_url": "https://static.openfoodfacts.org/images/products/761/303/546/8535/front_fr.8.400.jpg",
@@ -6415,15 +6406,6 @@
         "nutriscore_grade": "e",
         "product_name": "Mini cônes vanille nougatine & chocolat nougatine",
         "url": "https://fr.openfoodfacts.org/produit/7613035468535/mini-cones-vanille-nougatine-chocolat-nougatine-nestle"
-    },
-    {
-        "_id": "8714100385340",
-        "compared_to_category": "fr:glace-pot",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/410/038/5340/front_fr.67.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/410/038/5340/nutrition_fr.5.200.jpg",
-        "nutriscore_grade": "d",
-        "product_name": "Ben & Jerry's Glace Pot Topped Caramel Salé Brownie 470ml",
-        "url": "https://fr.openfoodfacts.org/produit/8714100385340/ben-jerry-s-glace-pot-topped-caramel-sale-brownie-470ml"
     },
     {
         "_id": "8714100862636",
@@ -6435,13 +6417,31 @@
         "url": "https://fr.openfoodfacts.org/produit/8714100862636/magnum-glace-batonnet-mini-double-chocolat-6x60ml"
     },
     {
-        "_id": "3415581319712",
-        "compared_to_category": "en:ice-creams",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/341/558/131/9712/front_fr.4.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/341/558/131/9712/nutrition_fr.10.200.jpg",
+        "_id": "8714100385340",
+        "compared_to_category": "fr:glace-pot",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/410/038/5340/front_fr.67.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/410/038/5340/nutrition_fr.5.200.jpg",
         "nutriscore_grade": "d",
-        "product_name": "Crème glacée vanille et éclats avec noix de macadamia caramélisées",
-        "url": "https://fr.openfoodfacts.org/produit/3415581319712/creme-glacee-vanille-et-eclats-avec-noix-de-macadamia-caramelisees-haagen-dazs"
+        "product_name": "Ben & Jerry's Glace Pot Topped Caramel Salé Brownie 470ml",
+        "url": "https://fr.openfoodfacts.org/produit/8714100385340/ben-jerry-s-glace-pot-topped-caramel-sale-brownie-470ml"
+    },
+    {
+        "_id": "3270160840793",
+        "compared_to_category": "en:vanilla-ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/327/016/084/0793/front_fr.8.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/327/016/084/0793/nutrition_fr.15.200.jpg",
+        "nutriscore_grade": "c",
+        "product_name": "Crème glacée vanille",
+        "url": "https://fr.openfoodfacts.org/produit/3270160840793/creme-glacee-vanille-picard"
+    },
+    {
+        "_id": "3270160840229",
+        "compared_to_category": "en:chocolate-ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/327/016/084/0229/front_fr.8.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/327/016/084/0229/nutrition_fr.25.200.jpg",
+        "nutriscore_grade": "d",
+        "product_name": "Le Chocolat - Pure Sélection",
+        "url": "https://fr.openfoodfacts.org/produit/3270160840229/le-chocolat-pure-selection-picard"
     },
     {
         "_id": "3415581377002",
@@ -6453,13 +6453,13 @@
         "url": "https://fr.openfoodfacts.org/produit/3415581377002/ice-cream-vanilla-caramel-brownie-haagen-dazs"
     },
     {
-        "_id": "7613034077943",
-        "compared_to_category": "fr:cones-et-batonnets-surgeles",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/761/303/407/7943/front_fr.15.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/761/303/407/7943/nutrition_fr.18.200.jpg",
+        "_id": "3415581319712",
+        "compared_to_category": "en:ice-creams",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/341/558/131/9712/front_fr.4.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/341/558/131/9712/nutrition_fr.10.200.jpg",
         "nutriscore_grade": "d",
-        "product_name": "Extrême Original Cône Vanille Praliné",
-        "url": "https://fr.openfoodfacts.org/produit/7613034077943/extreme-original-cone-vanille-praline-nestle"
+        "product_name": "Crème glacée vanille et éclats avec noix de macadamia caramélisées",
+        "url": "https://fr.openfoodfacts.org/produit/3415581319712/creme-glacee-vanille-et-eclats-avec-noix-de-macadamia-caramelisees-haagen-dazs"
     },
     {
         "_id": "7613035892866",
@@ -6471,15 +6471,6 @@
         "url": "https://fr.openfoodfacts.org/produit/7613035892866/extreme"
     },
     {
-        "_id": "8711327345034",
-        "compared_to_category": "en:ice-creams",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/734/5034/front_fr.14.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/734/5034/nutrition_fr.8.200.jpg",
-        "nutriscore_grade": "e",
-        "product_name": "KINDER Bueno Ice Cream Barre Crème Glacée au Lait Enrobée de Chocolat",
-        "url": "https://fr.openfoodfacts.org/produit/8711327345034/kinder-bueno-ice-cream-barre-creme-glacee-au-lait-enrobee-de-chocolat"
-    },
-    {
         "_id": "8711327384521",
         "compared_to_category": "en:ice-cream-bars",
         "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/738/4521/front_fr.11.400.jpg",
@@ -6489,22 +6480,31 @@
         "url": "https://fr.openfoodfacts.org/produit/8711327384521/magnum-glace-batonnet-mini-ruby-x6-330ml"
     },
     {
-        "_id": "20046408",
-        "compared_to_category": "en:vanilla-ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/20046408/front_fr.40.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/20046408/nutrition_fr.42.200.jpg",
+        "_id": "7613034077943",
+        "compared_to_category": "fr:cones-et-batonnets-surgeles",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/761/303/407/7943/front_fr.15.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/761/303/407/7943/nutrition_fr.18.200.jpg",
         "nutriscore_grade": "d",
-        "product_name": "Gelatelli vanilla",
-        "url": "https://fr.openfoodfacts.org/produit/20046408/gelatelli-vanilla-ecorino"
+        "product_name": "Extrême Original Cône Vanille Praliné",
+        "url": "https://fr.openfoodfacts.org/produit/7613034077943/extreme-original-cone-vanille-praline-nestle"
     },
     {
-        "_id": "8712100495045",
+        "_id": "8711327345034",
         "compared_to_category": "en:ice-creams",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/210/049/5045/front_fr.42.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/210/049/5045/nutrition_fr.12.200.jpg",
-        "nutriscore_grade": "c",
-        "product_name": "Carte D'or Glace Fraise Morceaux de Meringue 900ml",
-        "url": "https://fr.openfoodfacts.org/produit/8712100495045/carte-d-or-glace-fraise-morceaux-de-meringue-900ml"
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/734/5034/front_fr.14.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/734/5034/nutrition_fr.8.200.jpg",
+        "nutriscore_grade": "e",
+        "product_name": "KINDER Bueno Ice Cream Barre Crème Glacée au Lait Enrobée de Chocolat",
+        "url": "https://fr.openfoodfacts.org/produit/8711327345034/kinder-bueno-ice-cream-barre-creme-glacee-au-lait-enrobee-de-chocolat"
+    },
+    {
+        "_id": "8711327385863",
+        "compared_to_category": "en:ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/871/132/738/5863/front_fr.31.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/132/738/5863/nutrition_fr.5.200.jpg",
+        "nutriscore_grade": "d",
+        "product_name": "Carte D'or Glace Café 900ml",
+        "url": "https://fr.openfoodfacts.org/produit/8711327385863/carte-d-or-glace-cafe-900ml"
     },
     {
         "_id": "8714100240243",
@@ -6516,13 +6516,22 @@
         "url": "https://fr.openfoodfacts.org/produit/8714100240243/chunky-monkey-non-dairy-ice-cream-ben-jerry-s"
     },
     {
-        "_id": "8714100685273",
-        "compared_to_category": "en:coconut-ice-cream-tubs",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/871/410/068/5273/front_fr.52.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/871/410/068/5273/nutrition_fr.40.200.jpg",
+        "_id": "20046408",
+        "compared_to_category": "en:vanilla-ice-cream-tubs",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/20046408/front_fr.40.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/20046408/nutrition_fr.42.200.jpg",
         "nutriscore_grade": "d",
-        "product_name": "MAGNUM Glace Bâtonnet Double Coco 4x88ml",
-        "url": "https://fr.openfoodfacts.org/produit/8714100685273/magnum-glace-batonnet-double-coco-4x88ml"
+        "product_name": "Gelatelli vanilla",
+        "url": "https://fr.openfoodfacts.org/produit/20046408/gelatelli-vanilla-ecorino"
+    },
+    {
+        "_id": "8722700054375",
+        "compared_to_category": "en:ice-cream-bars",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/872/270/005/4375/front_fr.53.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/872/270/005/4375/nutrition_fr.44.200.jpg",
+        "nutriscore_grade": "d",
+        "product_name": "MAGNUM Glace Bâtonnet Chocolat Blanc & Fraise 4x110ml",
+        "url": "https://fr.openfoodfacts.org/produit/8722700054375/magnum-glace-batonnet-chocolat-blanc-fraise-4x110ml"
     },
     {
         "_id": "3228857000166",
@@ -9343,7 +9352,7 @@
     },
     {
         "_id": "8000430138719",
-        "compared_to_category": "en:mozzarella",
+        "compared_to_category": "en:cow-mozzarella",
         "image_front_url": "https://static.openfoodfacts.org/images/products/800/043/013/8719/front_fr.68.400.jpg",
         "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/800/043/013/8719/nutrition_fr.113.200.jpg",
         "nutriscore_grade": "c",
@@ -10865,7 +10874,7 @@
     {
         "_id": "3228857000647",
         "compared_to_category": "fr:brioches-tranchees",
-        "image_front_url": "https://static.openfoodfacts.org/images/products/322/885/700/0647/front_fr.109.400.jpg",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/322/885/700/0647/front_fr.110.400.jpg",
         "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/322/885/700/0647/nutrition_fr.23.200.jpg",
         "nutriscore_grade": "d",
         "product_name": "Brioche tranchée nature",
@@ -10915,6 +10924,15 @@
         "nutriscore_grade": "c",
         "product_name": "Goûter pépites de chocolat",
         "url": "https://fr.openfoodfacts.org/produit/3251490307002/gouter-pepites-de-chocolat-gerble"
+    },
+    {
+        "_id": "3175680011442",
+        "compared_to_category": "en:breakfast-biscuit",
+        "image_front_url": "https://static.openfoodfacts.org/images/products/317/568/001/1442/front_fr.143.400.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/317/568/001/1442/nutrition_fr.138.200.jpg",
+        "nutriscore_grade": "c",
+        "product_name": "Biscuit soja orange",
+        "url": "https://fr.openfoodfacts.org/produit/3175680011442/biscuit-soja-orange-gerble"
     },
     {
         "_id": "3017760290692",
@@ -13233,7 +13251,7 @@
         "_id": "3270160471966",
         "compared_to_category": "fr:galettes-garnies",
         "image_front_url": "https://static.openfoodfacts.org/images/products/327/016/047/1966/front_fr.51.400.jpg",
-        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/327/016/047/1966/nutrition_fr.53.200.jpg",
+        "image_nutrition_small_url": "https://static.openfoodfacts.org/images/products/327/016/047/1966/nutrition_fr.62.200.jpg",
         "nutriscore_grade": "b",
         "product_name": "Galette au sarrasin - Champignon, jambon, emmental",
         "url": "https://fr.openfoodfacts.org/produit/3270160471966/galette-au-sarrasin-champignon-jambon-emmental-picard"
