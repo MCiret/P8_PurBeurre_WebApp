@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %} <!-- nom du block qu'on veut remplacer dans main.html -->
+
+    <form method="POST" action="{% url 'account:user-create' %}">
+        {% csrf_token %} <!-- Afficher le csrf_token ce qui permet de le générer et automatiquement inclus dans le formulaire -->
+
+        {{ form.as_p }}
+        <input type="submit" value="Valider"</input>
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P8</title>
+</head>
+
+<body>
+    <div>
+        <h2>Mon super P8 !</h2>
+    </div>
+    <!-- A personalized context_processor is used to have the tiny menu's research_form in every templates headers -->
+    <form method="GET" action="{% url 'research:form-page' %}">
+            {{ research_form.as_p }}
+            <input type="submit" value="Lancer la recherche"</input>
+    </form>
+        {% block content %}
+        {% endblock content %}
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %} <!-- nom du block qu'on veut remplacer dans main.html -->
+
+    <h1>RESULTS PAGE</h1>
+
+    {% if research_key_words %}
+        <p> Vous avez saisi : {{ research_key_words }}</p>
+    {% endif %}
+
+    {% if the_researched_food %}
+        <p>Aliment recherché : {{ the_researched_food.barcode }} - {{ the_researched_food.name }} - {{ the_researched_food.nutri_score }} - <a href="{{ the_researched_food.off_url }}">Lien Open Food Facts</a></br></p>
+        <p> ⮡ catégorie(s) : {% for cat in the_researched_food.categories %} {{ cat.name }} {% endfor %}</p>
+        {% if substitutes_foods %}
+            {% for substitute in substitutes_foods %}
+                <li>
+                    {{ substitute.barcode }} - {{ substitute.name }} - {{ substitute.nutri_score }} - <a href="{{ substitute.off_url }}">Lien Open Food Facts</a></br>
+                      ⮡ catégorie(s) : {% for cat in substitute.categories %} {{ cat.name }} {% endfor %}</br>
+                </li>
+            {% endfor %}
+        {% else %}
+            <p>Aucun substitut n'a été trouvé...</p>
+        {% endif %}
+
+    {% elif many_researched_foods %}
+        <p>Plusieurs aliments correspondent à votre recherche... Veuillez en choisir un :</p>
+        {% for food in many_researched_foods %}
+            <p><a href="{% url 'research:result-page' selected_food=food.barcode %}">{{ food.name }}</a></p>
+        {% endfor %}
+    {% else %}
+        Aucun aliment ne correspond...
+    {% endif %}
+
+{% endblock content %}
