@@ -1,56 +1,12 @@
-from django.test import TestCase
+from django.test import TestCase, TransactionTestCase
 from unittest import mock
 from research.management.commands.filldb import Command
+from research.models import Food, Category
 import json
 import tempfile
 
 
-class FilldbTests(TestCase):
-
-    def test_build_request(self):
-        with mock.patch.object(Command, 'REQUESTED_FIELDS', new_callable=mock.PropertyMock) as mock_fields:
-            mock_fields.return_value = ("f1", "f2", "f3")
-
-            self.assertEqual(Command.build_get_request("category", "page_nb"),
-                         "https://fr.openfoodfacts.org/cgi/search.pl?action=process"
-                         "&tagtype_0=categories"
-                         "&tag_contains_0=contains"
-                         "&tag_0=category"
-                         "&fields=f1,f2,f3"
-                         "&page_size=100&page=page_nb&json=true")
-
-    def test_is_valid_food(self):
-        food_dict_valid = {
-            "f1": "val1",
-            "f2": "val2",
-            "f3": "val3",
-            "f4": "val4",
-        }
-        food_dict_not_valid = {
-            "f1": "val1",
-            "f3": "val3",
-            "f4": "val4",
-        }
-        fields = ("f1", "f2", "f3", "f4")
-
-        bkup_requested_field = Command.REQUESTED_FIELDS
-        Command.REQUESTED_FIELDS = fields
-
-        self.assertTrue(Command.is_valid_food(food_dict_valid))
-        self.assertFalse(Command.is_valid_food(food_dict_not_valid))
-
-        Command.REQUESTED_FIELDS = bkup_requested_field
-
-    def test_keep_max_three_food_categories(self):
-        long_cat_list = ["c1", "c2", "c3", "c4", "c5"]
-        exact_cat_list = ["c1", "c2", "c3"]
-        short_cat_list = ["c1", "c2"]
-        Command.keep_max_three_food_categories(long_cat_list)
-        Command.keep_max_three_food_categories(exact_cat_list)
-        Command.keep_max_three_food_categories(short_cat_list)
-        self.assertListEqual(long_cat_list, ["c1", "c2", "c3"])
-        self.assertListEqual(exact_cat_list, ["c1", "c2", "c3"])
-        self.assertListEqual(short_cat_list, ["c1", "c2"])
+class APIrequetsTests(TestCase):
 
     def test_get_params_dict_from_json(self):
         read_data = json.dumps({
@@ -79,3 +35,98 @@ class FilldbTests(TestCase):
             "categories": ["c1", "c2", "c3", "c4"],
             "page": "2"
         })
+
+    @mock.patch('research.management.commands.filldb.Command.REQUESTED_FIELDS', new_callable=mock.PropertyMock)
+    def test_build_request(self, mock_fields):
+        mock_fields.return_value = ("f1", "f2", "f3")
+
+        self.assertEqual(Command.build_get_request("category", "page_nb"),
+                         "https://fr.openfoodfacts.org/cgi/search.pl?action=process"
+                         "&tagtype_0=categories"
+                         "&tag_contains_0=contains"
+                         "&tag_0=category"
+                         "&fields=f1,f2,f3"
+                         "&page_size=100&page=page_nb&json=true")
+
+    @mock.patch('research.management.commands.filldb.Command.REQUESTED_FIELDS', new_callable=mock.PropertyMock)
+    def test_is_valid_food(self, mock_fields):
+        mock_fields.return_value = ("f1", "f2", "f3", "f4")
+
+        food_dict_valid = {
+            "f1": "val1",
+            "f2": "val2",
+            "f3": "val3",
+            "f4": "val4",
+        }
+        food_dict_not_valid = {
+            "f1": "val1",
+            "f3": "val3",
+            "f4": "val4",
+        }
+
+        self.assertTrue(Command.is_valid_food(food_dict_valid))
+        self.assertFalse(Command.is_valid_food(food_dict_not_valid))
+
+
+class FillDBTests(TransactionTestCase):
+    @mock.patch("research.management.commands.filldb.Command.is_valid_food")
+    def test_save_food_in_db(self, mock_is_valid_food):
+        mock_is_valid_food.return_value = True
+
+        with open("research/tests/mocks_data/mock_off_api_response.json", "r", encoding="utf-8") as json_file:
+            off_api_resp_dict = json.load(json_file)
+
+        Command.save_foods_in_db(off_api_resp_dict)
+
+        all_foods_in_db = Food.objects.all()
+        self.assertEqual(len(all_foods_in_db), 2)
+
+        all_categories_in_db = Category.objects.all()
+        self.assertEqual(len(all_categories_in_db), 11)
+
+        gazpacho_food = all_foods_in_db[0]
+        self.assertEqual(gazpacho_food.barcode, "5410188031072")
+
+        gazpacho_food_categories_list = [cat.name for cat in gazpacho_food.category_set
+                                                                          .all()
+                                                                          .order_by('categoryfoods__category_rank')]
+        self.assertEqual(gazpacho_food_categories_list,
+                         ["en:refrigerated-soups", "en:gazpacho", "en:refrigerated-meals",
+                          "en:cold-soups", "en:vegetable-soups", "en:meals"])
+
+    @mock.patch("research.management.commands.filldb.Command.get_params_dict_from_json")
+    @mock.patch("research.management.commands.filldb.Command.build_get_request")
+    @mock.patch('requests.get')
+    @mock.patch("research.management.commands.filldb.Command.save_foods_in_db")
+    def test_my_handle_command_filldb_if_api_resp_is_ok(self, mock_save, mock_get, mock_build, mock_get_params):
+        mock_get.return_value.status_code = 200
+        mock_get_params.return_value = {
+            "categories": ["c1", "c2", "c3", "c4"],
+            "page": "1"
+        }
+
+        cmd = Command()
+        cmd.handle()
+        self.assertTrue(mock_save.called)
+        self.assertTrue(mock_get.called)
+        self.assertTrue(mock_build.called)
+        self.assertTrue(mock_get_params.called)
+
+    @mock.patch("research.management.commands.filldb.Command.get_params_dict_from_json")
+    @mock.patch("research.management.commands.filldb.Command.build_get_request")
+    @mock.patch('requests.get')
+    @mock.patch("research.management.commands.filldb.Command.save_foods_in_db")
+    def test_my_handle_command_dont_filldb_if_api_resp_is_not_ok(self, mock_save, mock_get,
+                                                                 mock_build, mock_get_params):
+        mock_get.return_value.status_code = 400
+        mock_get_params.return_value = {
+            "categories": ["c1", "c2", "c3", "c4"],
+            "page": "1"
+        }
+
+        cmd = Command()
+        cmd.handle()
+        self.assertFalse(mock_save.called)
+        self.assertTrue(mock_get.called)
+        self.assertTrue(mock_build.called)
+        self.assertTrue(mock_get_params.called)

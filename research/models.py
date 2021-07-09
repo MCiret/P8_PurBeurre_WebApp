@@ -15,7 +15,16 @@ class Food(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=150, unique=True)
-    foods = models.ManyToManyField(Food)
+    foods = models.ManyToManyField(Food, through="CategoryFoods")
 
     def __str__(self):
         return f"Catégorie --> {self.name}"
+
+
+class CategoryFoods(models.Model):
+    """
+        A Food + A Category + the rank of the food's category in the hierarchy
+    """
+    food = models.ForeignKey(Food, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category_rank = models.IntegerField()

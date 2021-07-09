@@ -6,33 +6,41 @@ from research.models import Food, Category
 
 
 class Command(BaseCommand):
+    """ $ py(thon) manage.py filldb """
+
     help = 'Requests OFF API to get some foods to fill the database.'
 
     REQUESTED_FIELDS = ('_id', 'product_name', 'nutriscore_grade', 'url',
                         'image_front_url', 'image_nutrition_small_url', 'categories_tags')
 
     def handle(self, *args, **options):
-        off_api_responses_list = []
+        """ Personalized command to run the OFF API requests and the database filling """
+        off_api_responses_list = []  # Temporary data checking TO DELETE ################
         params_dict = Command.get_params_dict_from_json("research/management/off_research_params.json")
         for category in params_dict['categories']:
             resp = requests.get(Command.build_get_request(category, params_dict['page']))
             if resp.status_code == 200:
                 resp_dict = resp.json()
-                Command.save_foods_in_bd(resp_dict)
-                off_api_responses_list.append(resp_dict)
+                Command.save_foods_in_db(resp_dict)
+                off_api_responses_list.append(resp_dict)  # Temporary data checking TO DELETE ################
         Command.update_json_page_number_param("research/management/off_research_params.json")
-        ############################# Temporary data checking ################
+        ############################# Temporary data checking TO DELETE ################
         Command.write_valid_foods(off_api_responses_list)
         ######################################################################
 
     @staticmethod
     def get_params_dict_from_json(json_file: str) -> dict:
+        """ Get from json file parameters used for OFF API requests """
         with open(json_file, "r", encoding="utf-8") as file:
             params = json.load(file)
         return params
 
     @staticmethod
     def update_json_page_number_param(json_file: str):
+        """
+            Parameter page number for OFF API requests is incremented after each run of filldb command,
+            to add more foods in db each time.
+        """
         params = Command.get_params_dict_from_json("research/management/off_research_params.json")
         params["page"] = str(int(params["page"]) + 1)
         with open(json_file, "w", encoding="utf-8") as of:
@@ -48,20 +56,20 @@ class Command(BaseCommand):
                f"&page_size=100&page={page_nb}&json=true"
 
     @staticmethod
-    def save_foods_in_bd(off_api_resp_dict: 'dict[dict]'):
-        for food in off_api_resp_dict["products"]:
-            if Command.is_valid_food(food):
-                Command.keep_max_three_food_categories(food["categories_tags"])
-                tmp_food = Food(food["_id"], *list(food.values())[2:])
-                tmp_food.save()
-                for category in food["categories_tags"]:
+    def save_foods_in_db(off_api_resp_dict: dict):
+        for food_dict in off_api_resp_dict["products"]:
+            if Command.is_valid_food(food_dict):
+                food = Food(food_dict["_id"], *list(food_dict.values())[2:])
+                food.save()
+                # categories_tags are ranked from the most general to the most specific
+                for i, category in enumerate(reversed(food_dict["categories_tags"])):
                     tmp_cat = Category(name=category)
                     try:  # try to create this category in db...
                         tmp_cat.save()
                     except IntegrityError:  # ...if this category's name is already in db whereas it has to be unique
-                        Category.objects.get(name=category).foods.add(tmp_food)
+                        Category.objects.get(name=category).foods.add(food, through_defaults={'category_rank': i+1})
                     else:  # ...else just make the many-to-many relation
-                        tmp_cat.foods.add(tmp_food)
+                        tmp_cat.foods.add(food, through_defaults={'category_rank': i+1})
 
     @staticmethod
     def is_valid_food(food_dict: dict) -> bool:
@@ -73,11 +81,7 @@ class Command(BaseCommand):
                 return False
         return True
 
-    @staticmethod
-    def keep_max_three_food_categories(food_categories_list: list):
-        if len(food_categories_list) > 3:
-            del food_categories_list[3:]
-
+    ####################### Temporary data checking TO DELETE ################
     @staticmethod
     def write_valid_foods(off_api_json_responses: 'list[dict][dict]'):
         keeped_foods_list = [food for resp_dict in off_api_json_responses
@@ -85,3 +89,4 @@ class Command(BaseCommand):
                              if Command.is_valid_food(food)]
         with open("final_products.json", "w", encoding="utf-8") as of:
             json.dump(keeped_foods_list, of, indent=4, sort_keys=True, ensure_ascii=False)
+    ###########################################################################

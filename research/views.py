@@ -13,9 +13,9 @@ class ResultView(TemplateView):
     def get(self, request, *args, **kwargs):
         # if it's user's research (keywords submitting) :
         if request.GET:
-            context = subr.look_for_substitutes(research_keywords=request.GET.get('research'))
+            context = subr.researchs_in_db(research_keywords=request.GET.get('research'))
         # when research returned several foods and user had selected 1
         elif self.kwargs:
-            context = subr.look_for_substitutes(food_barcode=self.kwargs['selected_food'])
+            context = subr.researchs_in_db(food_barcode=self.kwargs['selected_food'])
 
         return render(request, self.template_name, context)
