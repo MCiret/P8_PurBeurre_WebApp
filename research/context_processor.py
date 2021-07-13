@@ -4,6 +4,5 @@ from research.forms import ResearchForm
 def research_form(request):
     """ Context processor """
     return {
-        "research_form": ResearchForm()
-
+        "research_form": ResearchForm(auto_id=False)
     }

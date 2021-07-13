@@ -2,4 +2,4 @@ from django import forms
 
 
 class ResearchForm(forms.Form):
-    research = forms.CharField(label='Aliment à rechercher', max_length=100)
+    research = forms.CharField(max_length=100, initial='Chercher', label=False)
