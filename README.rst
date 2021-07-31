@@ -3,7 +3,7 @@
 =====================
 **Searching for food substitution in Open Food Facts french database**
 
-|Status badge| |UIlanguage badge|
+|Status badge| |UIlanguage badge| |vPython badge| |vBootstrap badge|
 
 *****************
 TABLE OF CONTENTS
@@ -11,15 +11,15 @@ TABLE OF CONTENTS
 
 1. `DESCRIPTION`_
     * `Summary`_
-    * `Feature and scenario`_
+    * `Features`_
 
 2. `INSTALLATION`_
-    * `Steps`_
+    * `Application`_
+    * `Database`_
     * `Required libraries`_
 
-3. `USAGE`_
-    * `UI example`_
-    * `API data`_
+3. `OPEN FOOD FACTS API USAGE`_
+
 
 
 DESCRIPTION
@@ -105,12 +105,12 @@ Application
 
 5) Environment variables to be set :
 
-    * projetc_config/settings.py :
+    * project_config/settings.py :
 
         - variable SECRET_KEY (key to securing signed data)
         - variable DATABASES['default']['PASSWORD']
 
-6) Install the database (see db_installation_ below).
+6) Install and fill the database (see db_settingup_ below).
 
 7) Run the code source main.py file : (UNIX) $ python manage.py runserver (DOS) $ py manapge.py runserver
 
@@ -119,36 +119,37 @@ Application
 Database
 --------
 
-.. _db_installation:
+.. _db_settingup:
 
 1) Install your favorite SGDB.
 2) Set up projetc_config/settings.py --> variable DATABASES with your database connection parameters (see comments above the variable declaration for Django documentation link).
+3) Run personalised Django command to request Open Food Facts API and insert food products (and categories) in database : (UNIX) $ python manage.py filldb (DOS) $ py manage.py filldb
+
+**Note that** you can modify which data are requested from Open Food Facts API
 
 Required libraries
 ------------------
-|vPython badge|
-|vHTML badge| |vCSS badge| |JavaScript badge|
-
 
 Python libraries to install in your virtual environment : $ pip install -r requirements.txt
 
+OPEN FOOD FACTS API USAGE
+=========================
 
+See research/management/commands/filldb.py
 
+The build_get_request() static method (called by handle() method) shows you the used request.
+https://documenter.getpostman.com/view/8470508/SVtN3Wzy#58efae40-73c3-4907-9a88-785faff6ffb1
 
+**WARNING** if you modify the fields parameter then you will have to adapt the front-end part of the application
 
+Nevertheless, there is no problem if you would like to modify categories, page_size (number of product per page) and/or page (number of page per request) :
 
-
-
-
-
-
-
+    ↳ The categories tags and page_nb are gotten from research/management/off_research_params.json. This file is modified (rewritten) each time the filldb command is used, to "feed" the database, the page_nb parameter is incremented.
+        **Note that** categories tags have to exists in OFF. They are not case sensitive but you have to use underscore te replace whitespace characters.
 
 
 .. |vPython badge| image:: https://img.shields.io/badge/Python-3.9-blue.svg
-.. |vHTML badge| image:: https://img.shields.io/badge/HTML-5-orange.svg
-.. |vCSS badge| image:: https://img.shields.io/badge/CSS-3-blue.svg
-.. |JavaScript badge| image:: https://img.shields.io/badge/JavaScript-.-yellow.svg
+.. |vBootstrap badge| image:: https://img.shields.io/badge/Bootstrap-5-purple.svg
 
-.. |Status badge| image:: https://img.shields.io/badge/Status-Production-brightgreen.svg
+.. |Status badge| image:: https://img.shields.io/badge/Status-Production-orange.svg
 .. |UIlanguage badge| image:: https://img.shields.io/badge/UI-French-9cf.svg
