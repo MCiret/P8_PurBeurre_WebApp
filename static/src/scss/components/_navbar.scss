@@ -1,6 +1,6 @@
-// 
+//
 // Navbar
-// 
+//
 
 #mainNav {
     box-shadow: $box-shadow;
@@ -37,7 +37,7 @@
     @include media-breakpoint-up(lg) {
         // Base styling for the navbar - screen sizes greater than the large breakpoint
         box-shadow: none;
-        background-color: transparent;
+        background-color: $rooibos;
 
         .navbar-brand {
             color: fade-out($white, 0.3);
@@ -69,7 +69,7 @@
         // Navbar styling applied when the page is scrolled
         &.navbar-shrink {
             box-shadow: $box-shadow;
-            background-color: $white;
+            background-color: $rigolo;
 
             .navbar-brand {
                 color: $gray-900;
@@ -92,4 +92,8 @@
             }
         }
     }
+}
+
+.navbar-logo {
+    height: 2.5rem;
 }

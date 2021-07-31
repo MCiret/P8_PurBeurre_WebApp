@@ -15,11 +15,36 @@ html {
 body {
     width: 100%;
     height: 100%;
+    font-family: $font-family-body;
+    color: $moules;
+    background-color: $caramel;
+}
+
+#main-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+header {
+    height: 3rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $rigolo;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-titles;
 }
 
 //- Page section styling
 .page-section {
-    padding: 8rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid $rooibos;
+    text-align: center;
 }
 
 // Custom utilities for this theme
@@ -27,7 +52,43 @@ body {
     color: fade-out($white, 0.25) !important;
 }
 
-#header-search-button
-{
-    visibility: hidden;
+#header-search-button {
+    display: none;
+}
+
+input {
+    color: var(--bs-gray);
+}
+
+.col-flex {
+    display: flex;
+    align-items: center;
+}
+
+.w-form-resp {
+    width: 75%;
+    justify-content: flex-end;
+}
+
+#home-photo {
+    height: 50vh;
+    background-image: url('../assets/img/Fond_écran_accueil.png/');
+}
+
+.bgd-photo {
+    background-position: center;
+    background-size: contain;
+    background-color: #fff;
+}
+
+.bgd-biscuit {
+    background-color: $biscuit;
+}
+
+.bgd-rooibos {
+    background-color: $rooibos;
+}
+
+.errorlist {
+    color: var(--bs-red);
 }

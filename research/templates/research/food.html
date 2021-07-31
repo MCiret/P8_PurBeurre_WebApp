@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div style="background-image: url('{{ food.image_url }}')" class="mt-5 row justify-content-center page-section bgd-photo">
+        <h2 class="bgd-biscuit col-auto">{{ food.name }}</h2>
+    </div>
+    <div class="page-section row">
+        <div class="col-xl-6">
+            <img style="width: 30vw" src="{% static 'dist/assets/img/Whole_Nutriscore_' %}{{ food.nutri_score }}.png">
+        </div>
+        <div class="col-xl-6">
+            <img src="{{ food.nutriment_url }}">
+        </div>
+    </div>
+    <div class="row justify-content-center page-section">
+        <a href={{food.off_url }}><input type="submit" value="Voir la fiche d'Open Food Facts"></input></a>
+    </div>
+
+{% endblock content %}

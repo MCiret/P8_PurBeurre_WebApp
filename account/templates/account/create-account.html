@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %} <!-- nom du block qu'on veut remplacer dans main.html -->
+
+
+    <div class="mt-5 page-section row align-items-center justify-content-center">
+            <form method="POST" action="{% url 'account:user-create' %}">
+                {% csrf_token %} <!-- Afficher le csrf_token ce qui permet de le générer et automatiquement inclus dans le formulaire -->
+
+                {{ form.as_p }}
+
+                <input type="submit" value="Créer le compte"</input>
+            </form>
+            <p class="bgd-rooibos text-center">Si vous avez déjà un compte Pur Beurre : <a href="{% url 'account:user-login' %}">Cliquez ici pour vous connecter...</a></p>
+    </div>
+
+{% endblock content %}

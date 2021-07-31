@@ -2,81 +2,101 @@
 {% load static %}
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='description' content='' />
+    <meta name='author' content='' />
         <title>
             {% block title %}
-            P8
+            Pur Beurre
             {% endblock title %}
         </title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="static/dist/assets/img/icons/favicon.ico" />
+    <link rel='icon' type='image/x-icon' href='{% static 'dist/assets/img/icons/favicon.ico' %}'/>
     <!-- Bootstrap Icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet' />
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Scope+One' rel='stylesheet' type='text/css'>
     <!-- SimpleLightbox plugin CSS-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css' rel='stylesheet' />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="{% static 'dist/css/styles.css' %}" rel="stylesheet" />
+    <link href='{% static 'dist/css/styles.css' %}' rel='stylesheet' />
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div id='main-container' class='container-fluid'>
 
         {% block nav %}
         {% endblock nav %}
-        <header>
+        <header id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top py-2 navbar-shrink">
             {% block header %}
-            <div class="row">
-                <div class="col-9">
-                    <div class="row">
-                        <div class='col-1' id="purbeurre-logo"></div>
-                        <div class='col-5'>Pur Beurre</div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="row">
-                        <div class='col'>
-                        <form method="GET" action="{% url 'research:form-page' %}"><!-- A personalized context_processor is used to have the menu's research_form in every templates headers -->
+                <div class="container-fluid px-5 px-lg-5">
+                    <a class="my-auto" style="width:56px" href={% url 'research:home-page' %} style="text-decoration:none">
+                        <img class="navbar-logo" src="{% static 'dist/assets/img/icons/logo_pur_beurre.png' %}">
+                    </a>
+                    <span class="fs-3">Pur Beurre</span>
+
+                    <div id="navbarResponsive" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ms-auto my-2 my-lg-0 align-items-center">
+                            <form class="row w-form-resp px-0 mx-1 align-items-baseline" method='GET' action='{% url 'research:form-page' %}'><!-- A personalized context_processor is used to have the menu's research_form in every templates headers -->
                                 {{ research_form }}
-                                <input type="submit" id="header-search-button"></input>
-                        </form>
-                        </div>
-                        <div class='col bi bi-person-circle'></div>
-                        <div class='col' id="carrot-icon"></div>
-                        <div class="col bi bi-box-arrow-right"></div>
+                                <input type='submit' id='header-search-button'></input>
+                            </form>
+
+                            {% if user.is_authenticated %}
+                            <li class="nav-item box-resp-logo mx-2">
+                                <a href={% url 'account:user-account'%} title="Mon compte"><div class='fs-3 bi bi-person-circle center-icon'></div></a>
+                            </li>
+                            <li class="nav-item box-resp-logo mx-2">
+                                <a href={% url 'bookmark:bookmark-page' %} title="Mes aliments">
+                                    <img class="navbar-logo" src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
+                                </a>
+                            </li>
+                            <li class="nav-item box-resp-logo mx-2">
+                                <a href={% url 'account:user-logout' %} title="Deconnecter"><div class='fs-3 bi bi-box-arrow-right center-icon'></div></a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item box-resp-logo mx-2">
+                                <a href={% url 'account:user-create' %} title="Créer un compte/Se connecter"><div class='fs-3 bi bi-person-plus-fill center-icon'></div></a>
+                            </li>
+                            <li class="nav-item box-resp-logo mx-2">
+                                <a href={% url 'account:user-create' %} title="Créer un compte/Se connecter pour accéder à Mes aliments">
+                                    <img class="navbar-logo" src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
+                                </a>
+                            </li>
+                            <li class="nav-item box-resp-logo mx-2">
+                                <div class='fs-3 bi bi-box-arrow-right center-icon'></div>
+                            </li>
+                            {% endif %}
+                        </ul>
                     </div>
                 </div>
-            </div>
             {% endblock header %}
         </header>
 
         {% block content %}
         {% endblock content %}
 
-        <footer>
-            <div class="row"
+        <footer class='row'>
             {% block footer %}
+                <div class='col'>Mentions légales --> lien vers new page!</div>
+                <div class='col'>Contact --> lien vers section ci-dessus</div>
             {% endblock footer %}
-            </div>
         </footer>
+    </div>
 
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script>
         <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js'></script>
         <!-- Core theme JS-->
-        <script src="{% static 'dist/js/scripts.js' %}"></script>
+        <script src='{% static 'dist/js/scripts.js' %}'></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </div>
+        <script src='https://cdn.startbootstrap.com/sb-forms-latest.js'></script>
 </body>
 </html>

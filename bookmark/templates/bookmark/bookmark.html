@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="mt-5 row page-section">
+        <h2> Vos aliments substituts sauvegardés </h2>
+        <p>TMP {{ user }}</p>
+    </div>
+
+    <div class="page-section row">
+        {% for bookmark in bookmarks_list %}
+            <div class="col-xl-4">
+                <div class="position-relative">
+                    <a href="{% url 'research:food-page' pk=bookmark.barcode %}" title="Voir le détail de l'aliment"><img class="mb-2" src="{{ bookmark.image_url }}"></a>
+                    <img class="size-rem-img" src="{% static 'dist/assets/img/Nutriscore_' %}{{ bookmark.nutri_score }}.png">
+                </div>
+                <p class="fw-bold">{{ bookmark.name }}</p>
+            </div>
+        {% empty %}
+           <p> Vous n'avez aucun aliment substitut sauvegardé...</p>
+        {% endfor %}
+    </div>
+{% endblock content %}

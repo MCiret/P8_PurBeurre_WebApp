@@ -49,7 +49,7 @@ def look_for_substitutes(categories_id: list, nutriscore: str):
     # try 2/3 of the top of food's categories (which are ranked)
     for cat_id in it.islice(categories_id, round(len(categories_id) / 3) * 2):
         substitutes = Food.objects.filter(category__id=cat_id, nutri_score__lt=nutriscore)
-        if len(substitutes) > 3:
+        if len(substitutes) > 0:
             return (substitutes)
         else:
             continue

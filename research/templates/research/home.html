@@ -1,7 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="mt-5 row page-section bgd-photo" id="home-photo">
+        <h1>Du gras, oui, mais de qualité !</h1>
+        <h2>Trouvez un produit de substitution</br>pour ceux que vous consommez</br>tous les jours.</h2>
 
-    <h1>HOME PAGE</h1>
+        <form class="mt-2" method="GET" action="{% url 'research:form-page' %}"><!-- A personalized context_processor is used to have the menu's research_form in every templates headers -->
+            {{ research_form }}
+            <input type="submit" value="Chercher"></input>
+        </form>
+    </div>
+    <div class="row page-section">
+        <h2>Colette et Remy</h2>
+        <h3>"De la ratatouille aux croissants"</h3>
+        <p>
+            Pur Beurre est l'initiative de deux amoureux de la gastronomie française,</br>Colette Tatou et Rémy,
+            </br>que vous avez déjà certainement rencontrés dans notre excellent restaurant Ratatouille.
+        </p>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-3"><img src="../../static/dist/assets/img/Colette-photo.jpg"></div>
+        <div class="col-3"><img src="../../static/dist/assets/img/Remy-photo.jpg"></div>
+    </div>
+    <div class="row page-section justify-content-center align-items-center">
+        <h2>Contactez-nous !</h2>
+        <p class="col-3">☎</br>0123456789</p>
+        <p class="col-3">📧</br>purbeurre@gmail.com</p>
+    </div>
+
 
 {% endblock content %}

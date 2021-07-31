@@ -11,7 +11,7 @@ class Command(BaseCommand):
     help = 'Requests OFF API to get some foods to fill the database.'
 
     REQUESTED_FIELDS = ('_id', 'product_name', 'nutriscore_grade', 'url',
-                        'image_front_url', 'image_nutrition_small_url', 'categories_tags')
+                        'image_front_url', 'image_nutrition_url', 'categories_tags')
 
     def handle(self, *args, **options):
         """ Personalized command to run the OFF API requests and the database filling """
@@ -60,16 +60,19 @@ class Command(BaseCommand):
         for food_dict in off_api_resp_dict["products"]:
             if Command.is_valid_food(food_dict):
                 food = Food(food_dict["_id"], *list(food_dict.values())[2:])
-                food.save()
+                try:
+                    food.save()
+                except IntegrityError:
+                    pass
                 # categories_tags are ranked from the most general to the most specific
                 for i, category in enumerate(reversed(food_dict["categories_tags"])):
-                    tmp_cat = Category(name=category)
+                    cat = Category(name=category)
                     try:  # try to create this category in db...
-                        tmp_cat.save()
-                    except IntegrityError:  # ...if this category's name is already in db whereas it has to be unique
+                        cat.save()
+                    except IntegrityError:  # ...if this category's name is already in db (whereas it has to be unique), just select this category and make the food relation :
                         Category.objects.get(name=category).foods.add(food, through_defaults={'category_rank': i+1})
-                    else:  # ...else just make the many-to-many relation
-                        tmp_cat.foods.add(food, through_defaults={'category_rank': i+1})
+                    else:  # ...else the new category had been inserted then make the food relation :
+                        cat.foods.add(food, through_defaults={'category_rank': i+1})
 
     @staticmethod
     def is_valid_food(food_dict: dict) -> bool:

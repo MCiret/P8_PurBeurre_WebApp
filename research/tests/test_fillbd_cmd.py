@@ -6,7 +6,8 @@ import json
 import tempfile
 
 
-class APIrequetsTests(TestCase):
+class FilldbTestsExceptSQL(TestCase):
+    """ Tests everything except database queries parts which are mocked """
 
     def test_get_params_dict_from_json(self):
         read_data = json.dumps({
@@ -67,13 +68,58 @@ class APIrequetsTests(TestCase):
         self.assertTrue(Command.is_valid_food(food_dict_valid))
         self.assertFalse(Command.is_valid_food(food_dict_not_valid))
 
+    @mock.patch("research.management.commands.filldb.Command.get_params_dict_from_json")
+    @mock.patch("research.management.commands.filldb.Command.build_get_request")
+    @mock.patch('requests.get')
+    @mock.patch("research.management.commands.filldb.Command.save_foods_in_db")
+    @mock.patch("research.management.commands.filldb.Command.update_json_page_number_param")
+    def test_my_handle_command_filldb_if_api_resp_is_ok(self, mock_update, mock_save, mock_get,
+                                                        mock_build, mock_get_params):
+        mock_get.return_value.status_code = 200
+        mock_get_params.return_value = {
+            "categories": ["c1", "c2", "c3", "c4"],
+            "page": "1"
+        }
 
-class FillDBTests(TransactionTestCase):
+        cmd = Command()
+        cmd.handle()
+        self.assertTrue(mock_save.called)
+        self.assertTrue(mock_get.called)
+        self.assertTrue(mock_build.called)
+        self.assertTrue(mock_get_params.called)
+        self.assertTrue(mock_update.called)
+
+    @mock.patch("research.management.commands.filldb.Command.get_params_dict_from_json")
+    @mock.patch("research.management.commands.filldb.Command.build_get_request")
+    @mock.patch('requests.get')
+    @mock.patch("research.management.commands.filldb.Command.save_foods_in_db")
+    @mock.patch("research.management.commands.filldb.Command.update_json_page_number_param")
+    def test_my_handle_command_dont_filldb_if_api_resp_is_not_ok(self, mock_update, mock_save, mock_get,
+                                                                 mock_build, mock_get_params):
+        mock_get.return_value.status_code = 400
+        mock_get_params.return_value = {
+            "categories": ["c1", "c2", "c3", "c4"],
+            "page": "1"
+        }
+
+        cmd = Command()
+        cmd.handle()
+        self.assertFalse(mock_save.called)
+        self.assertTrue(mock_get.called)
+        self.assertTrue(mock_build.called)
+        self.assertTrue(mock_get_params.called)
+        self.assertTrue(mock_update.called)
+
+
+class FilldbTests(TransactionTestCase):
+    """ Tests only database queries """
+
     @mock.patch("research.management.commands.filldb.Command.is_valid_food")
-    def test_save_food_in_db(self, mock_is_valid_food):
+    def test_sql_of_save_food_in_db(self, mock_is_valid_food):
+
         mock_is_valid_food.return_value = True
 
-        with open("research/tests/mocks_data/mock_off_api_response.json", "r", encoding="utf-8") as json_file:
+        with open("research/tests/mock_off_api_response.json", "r", encoding="utf-8") as json_file:
             off_api_resp_dict = json.load(json_file)
 
         Command.save_foods_in_db(off_api_resp_dict)
@@ -93,40 +139,3 @@ class FillDBTests(TransactionTestCase):
         self.assertEqual(gazpacho_food_categories_list,
                          ["en:refrigerated-soups", "en:gazpacho", "en:refrigerated-meals",
                           "en:cold-soups", "en:vegetable-soups", "en:meals"])
-
-    @mock.patch("research.management.commands.filldb.Command.get_params_dict_from_json")
-    @mock.patch("research.management.commands.filldb.Command.build_get_request")
-    @mock.patch('requests.get')
-    @mock.patch("research.management.commands.filldb.Command.save_foods_in_db")
-    def test_my_handle_command_filldb_if_api_resp_is_ok(self, mock_save, mock_get, mock_build, mock_get_params):
-        mock_get.return_value.status_code = 200
-        mock_get_params.return_value = {
-            "categories": ["c1", "c2", "c3", "c4"],
-            "page": "1"
-        }
-
-        cmd = Command()
-        cmd.handle()
-        self.assertTrue(mock_save.called)
-        self.assertTrue(mock_get.called)
-        self.assertTrue(mock_build.called)
-        self.assertTrue(mock_get_params.called)
-
-    @mock.patch("research.management.commands.filldb.Command.get_params_dict_from_json")
-    @mock.patch("research.management.commands.filldb.Command.build_get_request")
-    @mock.patch('requests.get')
-    @mock.patch("research.management.commands.filldb.Command.save_foods_in_db")
-    def test_my_handle_command_dont_filldb_if_api_resp_is_not_ok(self, mock_save, mock_get,
-                                                                 mock_build, mock_get_params):
-        mock_get.return_value.status_code = 400
-        mock_get_params.return_value = {
-            "categories": ["c1", "c2", "c3", "c4"],
-            "page": "1"
-        }
-
-        cmd = Command()
-        cmd.handle()
-        self.assertFalse(mock_save.called)
-        self.assertTrue(mock_get.called)
-        self.assertTrue(mock_build.called)
-        self.assertTrue(mock_get_params.called)

@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "env/bin/python"
+    "python.pythonPath": "env/bin/python",
+    "restructuredtext.confPath": "${workspaceFolder}/env/lib64/python3.9/site-packages/django/urls"
 }

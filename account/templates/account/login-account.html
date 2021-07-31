@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %} <!-- nom du block qu'on veut remplacer dans main.html -->
+
+    <div class="mt-5 page-section row align-items-center justify-content-center">
+    <form method="POST" action="{% url 'account:user-login' %}">
+
+        {% csrf_token %} <!-- Afficher le csrf_token ce qui permet de le générer et automatiquement inclus dans le formulaire -->
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Se connecter"></input>
+        <input type="hidden" name="next" value="/"></input>
+    </form>
+    </div>
+
+{% endblock content %}

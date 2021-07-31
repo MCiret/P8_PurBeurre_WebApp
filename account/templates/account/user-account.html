@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %} <!-- nom du block qu'on veut remplacer dans main.html -->
+
+    <div id="home-photo" class="mt-5 row page-section fw-bolder bgd-photo align-items-center justify-content-center" style="font-size: 1.5em">
+        <div class="col-auto">
+            <p class="bgd-rooibos p-2">Hello</br>{{ user_name }} !</p>
+        </div>
+    </div>
+    <div class="page-section">
+        {{ user_mail }}
+    </div>
+
+{% endblock content %}
