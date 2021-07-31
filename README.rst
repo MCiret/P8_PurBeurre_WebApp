@@ -20,8 +20,6 @@ TABLE OF CONTENTS
 
 3. `OPEN FOOD FACTS API USAGE`_
 
-
-
 DESCRIPTION
 ===========
 
@@ -125,7 +123,7 @@ Database
 2) Set up projetc_config/settings.py --> variable DATABASES with your database connection parameters (see comments above the variable declaration for Django documentation link).
 3) Run personalised Django command to request Open Food Facts API and insert food products (and categories) in database : (UNIX) $ python manage.py filldb (DOS) $ py manage.py filldb
 
-**Note that** you can modify which data are requested from Open Food Facts API
+.. note:: you can modify which data are requested from Open Food Facts API
 
 Required libraries
 ------------------
@@ -140,12 +138,11 @@ See research/management/commands/filldb.py
 The build_get_request() static method (called by handle() method) shows you the used request.
 https://documenter.getpostman.com/view/8470508/SVtN3Wzy#58efae40-73c3-4907-9a88-785faff6ffb1
 
-**WARNING** if you modify the fields parameter then you will have to adapt the front-end part of the application
+.. warning:: if you modify the fields parameter then you will have to adapt the front-end part of the application
 
-Nevertheless, there is no problem if you would like to modify categories, page_size (number of product per page) and/or page (number of page per request) :
-
-    ↳ The categories tags and page_nb are gotten from research/management/off_research_params.json. This file is modified (rewritten) each time the filldb command is used, to "feed" the database, the page_nb parameter is incremented.
-        **Note that** categories tags have to exists in OFF. They are not case sensitive but you have to use underscore te replace whitespace characters.
+Nevertheless, there is no problem if you would like to modify categories, page_size (number of product per page) and/or page (number of page per request).
+The categories tags and page_nb are gotten from research/management/off_research_params.json. This file is modified (rewritten) each time the filldb command is used, to "feed" the database, the page_nb parameter is incremented.
+.. note:: categories tags have to exists in OFF. They are not case sensitive but you have to use underscore te replace whitespace characters.
 
 
 .. |vPython badge| image:: https://img.shields.io/badge/Python-3.9-blue.svg
