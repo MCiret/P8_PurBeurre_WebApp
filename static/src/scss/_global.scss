@@ -12,34 +12,6 @@ html {
     scroll-padding-top: calc(#{$navbar-height} - 1px);
 }
 
-body {
-    width: 100%;
-    height: 100%;
-    font-family: $font-family-body;
-    color: $moules;
-    background-color: $caramel;
-}
-
-#main-container {
-    position: relative;
-    min-height: 100vh;
-}
-
-header {
-    height: 3rem;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: $rigolo;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: $font-family-titles;
-}
-
 //- Page section styling
 .page-section {
     padding: 2rem 0;
@@ -52,26 +24,25 @@ h1, h2, h3, h4, h5, h6 {
     color: fade-out($white, 0.25) !important;
 }
 
+ // From here : my personalized styles
+
+body {
+    font-family: $font-family-body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-titles;
+}
+
+footer {
+    border-top: 1px solid $rooibos;
+}
+
 #header-search-button {
     display: none;
 }
 
-input {
-    color: var(--bs-gray);
-}
-
-.col-flex {
-    display: flex;
-    align-items: center;
-}
-
-.w-form-resp {
-    width: 75%;
-    justify-content: flex-end;
-}
-
 #home-photo {
-    height: 50vh;
     background-image: url('../assets/img/Fond_écran_accueil.png/');
 }
 
@@ -81,14 +52,42 @@ input {
     background-color: #fff;
 }
 
-.bgd-biscuit {
-    background-color: $biscuit;
-}
-
-.bgd-rooibos {
+.bg-rooibos {
     background-color: $rooibos;
 }
+.bg-moules {
+    background-color: $moules;
+}
+.bg-rigolo {
+    background-color: $rigolo;
+}
+.bg-caramel {
+    background-color: $caramel;
+}
+.bg-biscuit {
+    background-color: $biscuit;
+}
+.bg-biscuit-semi-tr {
+    background-color: $biscuit-semi-transp;
+}
 
+.text-rooibos {
+    color: $rooibos;
+}
+.text-moules {
+    color: $moules;
+}
+.text-rigolo {
+    color: $rigolo;
+}
+.text-caramel {
+    color: $caramel;
+}
+.text-biscuit {
+    color: $biscuit;
+}
+
+// Error message displayed by Django creation and login form
 .errorlist {
     color: var(--bs-red);
 }

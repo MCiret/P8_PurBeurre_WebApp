@@ -17,5 +17,8 @@ def save_bookmark(user_email: str, substitute_barcode: int):
         pass
 
 
-def add_bookmarks_to_context(user_email: str):
+def list_user_bookmarks_barcodes(user_email: str):
+    """
+    Called by research.views.ResultView.get() method.
+    """
     return [barcode['barcode'] for barcode in get_user_bookmarks(user_email).values('barcode')]

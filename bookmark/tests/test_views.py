@@ -36,7 +36,7 @@ class BookmarkViewsTestsWithTransaction(TransactionTestCase):
         crud.create_food("1", "c", "food1")
         crud.create_food("2", "d", "food2")
         crud.create_food("3", "a", "food3")
-        # At lest 3 categories because of look_for_substitutes() in research/substitutes_research.py
+        # At least 3 categories because of look_for_substitutes() in research/substitutes_research.py
         crud.create_category("1", "c1", "1")
         crud.create_category("2", "c1", "1")
         crud.create_category("3", "c1", "1")

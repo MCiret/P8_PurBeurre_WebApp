@@ -3,9 +3,8 @@
 
 {% block content %}
 
-    <div class="mt-5 row page-section">
-        <h2> Vos aliments substituts sauvegardés </h2>
-        <p>TMP {{ user }}</p>
+    <div class="row justify-content-center page-section">
+        <p class="col-auto rounded-3 fs-3 text-rooibos bg-caramel fw-bolder"> Vos aliments substituts sauvegardés </p>
     </div>
 
     <div class="page-section row">
@@ -13,7 +12,7 @@
             <div class="col-xl-4">
                 <div class="position-relative">
                     <a href="{% url 'research:food-page' pk=bookmark.barcode %}" title="Voir le détail de l'aliment"><img class="mb-2" src="{{ bookmark.image_url }}"></a>
-                    <img class="size-rem-img" src="{% static 'dist/assets/img/Nutriscore_' %}{{ bookmark.nutri_score }}.png">
+                    <img class="align-top" height="75px" src="{% static 'dist/assets/img/Nutriscore_' %}{{ bookmark.nutri_score }}.png">
                 </div>
                 <p class="fw-bold">{{ bookmark.name }}</p>
             </div>

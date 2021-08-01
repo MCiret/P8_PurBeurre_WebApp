@@ -8,13 +8,6 @@ import bookmark.bookmarks_db_handler as bdh
 class HomePageView(TemplateView):
     template_name = 'research/home.html'
 
-    # def get(self, request, *args, **kwargs):
-    #     print("*************", request.GET)
-    #     print("=============", request.session)
-    #     print("======USER======", request.user)
-
-    #     return render(request, self.template_name)
-
 
 class ResultView(View):
     template_name = 'research/result.html'
@@ -29,7 +22,8 @@ class ResultView(View):
         elif kwargs:
             context = {}
             if str(request.user) != "AnonymousUser":
-                context.update({"bookmarks": bdh.add_bookmarks_to_context(str(request.user))})
+                # Add user's bookmarks in the context (to replace the "Sauvegarder" button by "Sauvegardé 🗹" text)
+                context.update({"bookmarks": bdh.list_user_bookmarks_barcodes(str(request.user))})
 
             context.update(subr.researchs_in_db(food_barcode=kwargs['selected_food']))
 

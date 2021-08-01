@@ -4,10 +4,10 @@
 {% block content %}
 
     {% if research_keywords %}
-        <div class="mt-5 row page-section">
-            <p> Vous avez saisi : {{ research_keywords }}</p>
+        <div class="row page-section bg-biscuit text-moules">
+            <p class="fs-3 text-rooibos fw-bolder"> Vous avez saisi : {{ research_keywords }}</p>
             {% if many_researched_foods %}
-                <p>Plusieurs aliments correspondent à votre recherche... Veuillez en choisir un :</p>
+                <p class="lead fw-bolder">Plusieurs aliments correspondent à votre recherche... Veuillez en choisir un :</p>
                 {% for food in many_researched_foods %}
                     <p class="col-xl-4">
                     <a href="{% url 'research:result-page' selected_food=food.barcode %}">{{ food.name }}</a> (Nutriscore {{ food.nutri_score|upper }})
@@ -19,17 +19,17 @@
         </div>
 
         {% elif the_researched_food %}
-            <div class="mt-5 row justify-content-center page-section bgd-photo" style="background-image: url('{{ the_researched_food.image_url }}')">
-                <h2 class="bgd-biscuit col-auto">Aliment à remplacer : {{ the_researched_food.name }} (Nutriscore {{ the_researched_food.nutri_score|upper }})</h2>
+            <div class="row justify-content-center page-section bgd-photo" style="background-image: url('{{ the_researched_food.image_url }}')">
+                <h2 class="text-moules rounded-3 bg-biscuit-semi-tr col-auto">Aliment à remplacer : {{ the_researched_food.name }} (Nutriscore {{ the_researched_food.nutri_score|upper }})</h2>
                 <p> **temporary check** ⮡ catégorie(s) : {% for cat in the_researched_food.categories %} {{ cat.name }} {% endfor %}</p>
             </div>
             <div class="page-section row">
                 {% if substitutes_foods %}
                     {% for food in substitutes_foods %}
                         <div class="col-xl-4">
-                            <div class="position-relative">
+                            <div>
                                 <a href="{% url 'research:food-page' pk=food.barcode %}" title="Voir le détail de l'aliment"><img class="mb-2" src="{{ food.image_url }}"></a>
-                                <img class="size-rem-img" src="{% static 'dist/assets/img/Nutriscore_' %}{{ food.nutri_score }}.png">
+                                <img class="align-top" height="75px" src="{% static 'dist/assets/img/Nutriscore_' %}{{ food.nutri_score }}.png">
                             </div>
                             <p class="fw-bold">{{ food.name }}</p>
 

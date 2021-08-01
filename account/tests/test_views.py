@@ -9,7 +9,7 @@ from account.views import UserAccountView
 class AccountViewsTests(TestCase):
 
     def test_user_create_view(self):
-        # Test empty form displaying :
+        # Test empty user creation form displaying :
         response_get = self.client.get(reverse('account:user-create'))
         self.assertContains(response_get, "Créer le compte", status_code=200)
         self.assertContains(response_get, "Si vous avez déjà un compte Pur Beurre :", status_code=200)
@@ -36,7 +36,7 @@ class AccountViewsTests(TestCase):
         self.assertContains(response_post2, "Si vous avez déjà un compte Pur Beurre :", status_code=200)
 
     def test_user_login_view(self):
-        # Test empty form displaying :
+        # Test empty user login form displaying :
         response_get = self.client.get(reverse('account:user-login'))
         self.assertContains(response_get, "Se connecter", status_code=200)
 
@@ -45,7 +45,7 @@ class AccountViewsTests(TestCase):
         response_post = self.client.post(reverse('account:user-login'), {
                                          'username': 'user_test@mail.com',
                                          'password': 'tutu3574', 'next': '/'}, follow=True)
-        # the 'next' value is set in the form and not in the view so it has to be passed with post params
+        # the 'next' value is set in the form (see hidden input in the html template) and not in the view so it has to be passed with post params
         # (like the username and password field values)
 
         # Test home page redirect when form is validated and user is logged :
@@ -63,10 +63,14 @@ class AccountViewsTests(TestCase):
 
     @mock.patch('account.views.UserAccountView.extract_user_name_from_mail')
     def test_user_account_view(self, mock_extract):
+
         mock_extract.return_value = "user_test"
+
         crud.create_user("user_test@gmail.com", "titi6789")
         self.client.login(username="user_test@gmail.com", password="titi6789")
+
         response_user_logged = self.client.get(reverse('account:user-account'))
+
         self.assertTrue(mock_extract.called)
         self.assertContains(response_user_logged, "user_test !", status_code=200)
         self.assertContains(response_user_logged, "user_test@gmail.com", status_code=200)
@@ -74,5 +78,7 @@ class AccountViewsTests(TestCase):
     def test_user_logout_view(self):
         crud.create_user("user_test@gmail.com", "titi6789")
         self.client.login(username="user_test@gmail.com", password="titi6789")
+
         response_user_logged = self.client.get(reverse('account:user-logout'), follow=True)
+        
         self.assertContains(response_user_logged, "Du gras, oui, mais de qualité !", status_code=200)

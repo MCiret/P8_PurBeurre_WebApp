@@ -51,22 +51,32 @@ class FilldbTestsExceptSQL(TestCase):
 
     @mock.patch('research.management.commands.filldb.Command.REQUESTED_FIELDS', new_callable=mock.PropertyMock)
     def test_is_valid_food(self, mock_fields):
-        mock_fields.return_value = ("f1", "f2", "f3", "f4")
+        mock_fields.return_value = ("f1", "f2", "f3", "f4", 'categories_tags')
 
-        food_dict_valid = {
+        valid_food_dict = {
+            "f1": "val1",
+            "f2": "val2",
+            "f3": "val3",
+            "f4": "val4",
+            'categories_tags': ["c1", "c2", "c3"]
+        }
+        invalid_food_dict_one_field_missing = {
             "f1": "val1",
             "f2": "val2",
             "f3": "val3",
             "f4": "val4",
         }
-        food_dict_not_valid = {
+        invalid_food_dict_less_than_3_categories = {
             "f1": "val1",
+            "f2": "val2",
             "f3": "val3",
             "f4": "val4",
+            'categories_tags': ["c1", "c2"]
         }
 
-        self.assertTrue(Command.is_valid_food(food_dict_valid))
-        self.assertFalse(Command.is_valid_food(food_dict_not_valid))
+        self.assertTrue(Command.is_valid_food(valid_food_dict))
+        self.assertFalse(Command.is_valid_food(invalid_food_dict_one_field_missing))
+        self.assertFalse(Command.is_valid_food(invalid_food_dict_less_than_3_categories))
 
     @mock.patch("research.management.commands.filldb.Command.get_params_dict_from_json")
     @mock.patch("research.management.commands.filldb.Command.build_get_request")
@@ -115,7 +125,7 @@ class FilldbTests(TransactionTestCase):
     """ Tests only database queries """
 
     @mock.patch("research.management.commands.filldb.Command.is_valid_food")
-    def test_sql_of_save_food_in_db(self, mock_is_valid_food):
+    def test_sql_in_save_foods_in_db_method(self, mock_is_valid_food):
 
         mock_is_valid_food.return_value = True
 
@@ -131,7 +141,7 @@ class FilldbTests(TransactionTestCase):
         self.assertEqual(len(all_categories_in_db), 11)
 
         gazpacho_food = all_foods_in_db[0]
-        self.assertEqual(gazpacho_food.barcode, "5410188031072")
+        self.assertEqual(gazpacho_food.barcode, "5410188031072")  # see research/tests/mock_off_api_response.json
 
         gazpacho_food_categories_list = [cat.name for cat in gazpacho_food.category_set
                                                                           .all()
@@ -139,3 +149,4 @@ class FilldbTests(TransactionTestCase):
         self.assertEqual(gazpacho_food_categories_list,
                          ["en:refrigerated-soups", "en:gazpacho", "en:refrigerated-meals",
                           "en:cold-soups", "en:vegetable-soups", "en:meals"])
+                         # see research/tests/mock_off_api_response.json

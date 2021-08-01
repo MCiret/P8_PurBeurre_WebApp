@@ -151,5 +151,5 @@ The categories tags and page_nb are gotten from research/management/off_research
 .. |vPython badge| image:: https://img.shields.io/badge/Python-3.9-blue.svg
 .. |vBootstrap badge| image:: https://img.shields.io/badge/Bootstrap-5-purple.svg
 
-.. |Status badge| image:: https://img.shields.io/badge/Status-Production-orange.svg
+.. |Status badge| image:: https://img.shields.io/badge/Status-Development-orange.svg
 .. |UIlanguage badge| image:: https://img.shields.io/badge/UI-French-9cf.svg

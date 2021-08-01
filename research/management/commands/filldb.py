@@ -39,7 +39,7 @@ class Command(BaseCommand):
     def update_json_page_number_param(json_file: str):
         """
             Parameter page number for OFF API requests is incremented after each run of filldb command,
-            to add more foods in db each time.
+            to add more foods in db...
         """
         params = Command.get_params_dict_from_json("research/management/off_research_params.json")
         params["page"] = str(int(params["page"]) + 1)
@@ -64,24 +64,34 @@ class Command(BaseCommand):
                     food.save()
                 except IntegrityError:
                     pass
-                # categories_tags are ranked from the most general to the most specific
+                # Ranks categories_tags from the most general to the most specific
+                # (see OFF API json response structure) :
                 for i, category in enumerate(reversed(food_dict["categories_tags"])):
                     cat = Category(name=category)
-                    try:  # try to create this category in db...
+                    # try to create this category in db...
+                    try:
                         cat.save()
-                    except IntegrityError:  # ...if this category's name is already in db (whereas it has to be unique), just select this category and make the food relation :
+                    # ...if this category's name is already in db (whereas it has to be unique),
+                    # just select this category and make the food relation :
+                    except IntegrityError:
                         Category.objects.get(name=category).foods.add(food, through_defaults={'category_rank': i+1})
-                    else:  # ...else the new category had been inserted then make the food relation :
+                    # ...else the new category had been inserted then make the food relation :
+                    else:
                         cat.foods.add(food, through_defaults={'category_rank': i+1})
 
     @staticmethod
     def is_valid_food(food_dict: dict) -> bool:
         """
-        A valid product must have the REQUESTED_FIELDS (see the 'fields' parameter in build_get_request() above).
+        A valid product has to respect 2 conditions :
+        1) have all REQUESTED_FIELDS (class attribute),
+        2) have at least 3 categories (because of look_for_substitutes() in research/substitutes_research.py).
+
         """
         for field in Command.REQUESTED_FIELDS:
             if field not in food_dict.keys():
                 return False
+        if len(food_dict['categories_tags']) < 3:
+            return False
         return True
 
     ####################### Temporary data checking TO DELETE ################

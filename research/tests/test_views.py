@@ -7,11 +7,13 @@ from research.models import Food
 class ResearchViewsTests(TestCase):
 
     def test_home_view(self):
+        # test with unlogged user :
         response_no_user_logged = self.client.get(reverse('research:home-page'))
         self.assertContains(response_no_user_logged, "Du gras, oui, mais de qualité !", status_code=200)
         self.assertNotContains(response_no_user_logged, "href=/accounts/logout")
         self.assertContains(response_no_user_logged, "href=/accounts/create/")
 
+        # test with logged user :
         crud.create_user("user_test", "titi6789")
         self.client.login(username="user_test", password="titi6789")
         response_user_logged = self.client.get(reverse('research:home-page'))
@@ -26,7 +28,7 @@ class ResearchViewsTests(TestCase):
         self.assertEqual(response.context['research_keywords'], 'absent food')
         self.assertContains(response, "Aucun aliment ne correspond à votre recherche...", status_code=200)
 
-    def test_result_view_if_researched_food_in_db_and_match_one_food(self):
+    def test_result_view_if_researched_food_is_in_db_and_match_one_food(self):
         mock_food = crud.create_food("1", "c", "food1")
 
         response = self.client.get(reverse('research:form-page'), {'research': "od1"})
@@ -40,7 +42,7 @@ class ResearchViewsTests(TestCase):
         mock_food2 = crud.create_food("2", "d", "food2")
         mock_food3 = crud.create_food("3", "a", "food3")
 
-        # If user's research keywords corresponds to many foods in database, 2 tests :
+        # If user's research keywords corresponds to many foods in database, 2 tests to do :
         # 1) Test of view returning several foods to be chosen by user
         response = self.client.get(reverse('research:form-page'), {'research': "od"})
         self.assertIn('research_keywords', response.context.keys())
@@ -63,7 +65,6 @@ class ResearchViewsTests(TestCase):
         self.assertContains(response, "food1", status_code=200)
 
 
-
 class ResearchViewsTestsWithTransaction(TransactionTestCase):
 
     def test_result_view_if_substitutes_are_found(self):
@@ -71,7 +72,7 @@ class ResearchViewsTestsWithTransaction(TransactionTestCase):
         mock_food1 = crud.create_food("1", "c", "food1")
         mock_food2 = crud.create_food("2", "d", "food2")
         mock_food3 = crud.create_food("3", "a", "food3")
-        # At lest 3 categories because of look_for_substitutes() in research/substitutes_research.py
+        # At least 3 categories because of look_for_substitutes() in research/substitutes_research.py
         crud.create_category("1", "c1", "1")
         crud.create_category("2", "c1", "1")
         crud.create_category("3", "c1", "1")
@@ -82,6 +83,7 @@ class ResearchViewsTestsWithTransaction(TransactionTestCase):
         crud.create_category("2", "c3", "3")
         crud.create_category("3", "c3", "3")
 
+        # test with unlogged user :
         response_no_user_logged = self.client.get(reverse('research:form-page'), {'research': "od1"})
         self.assertIn('the_researched_food', response_no_user_logged.context.keys())
         self.assertEqual(response_no_user_logged.context['the_researched_food'], mock_food1)
@@ -90,6 +92,7 @@ class ResearchViewsTestsWithTransaction(TransactionTestCase):
         self.assertEqual(response_no_user_logged.context['substitutes_foods'].get(), mock_food3)
         self.assertNotContains(response_no_user_logged, "Sauvegard", status_code=200)
 
+        # test with logged user :
         crud.create_user("user_test", "titi6789")
         self.client.login(username="user_test", password="titi6789")
         response_user_logged = self.client.get(reverse('research:form-page'), {'research': "od1"})

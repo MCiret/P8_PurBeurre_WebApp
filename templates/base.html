@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html class="h-100">
 <head>
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -20,83 +20,74 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Scope+One' rel='stylesheet' type='text/css'>
     <!-- SimpleLightbox plugin CSS-->
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css' rel='stylesheet' />
+    <link href='https://cdnjs.cloudflare.com/ajax/divbs/SimpleLightbox/2.1.0/simpleLightbox.min.css' rel='stylesheet' />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href='{% static 'dist/css/styles.css' %}' rel='stylesheet' />
 </head>
 
-<body>
-    <div id='main-container' class='container-fluid'>
+<body class="h-100 bg-biscuit">
+    <div class='d-flex h-100 flex-column container-fluid'>
 
         {% block nav %}
         {% endblock nav %}
-        <header id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top py-2 navbar-shrink">
-            {% block header %}
-                <div class="container-fluid px-5 px-lg-5">
-                    <a class="my-auto" style="width:56px" href={% url 'research:home-page' %} style="text-decoration:none">
-                        <img class="navbar-logo" src="{% static 'dist/assets/img/icons/logo_pur_beurre.png' %}">
+
+        {% block header %}
+        <header class="row row-cols-auto bg-rigolo text-moules">
+            <div class="d-flex col-xl-9 col-sm-auto justify-content-start">
+                <div>
+                    <a class="my-auto" href={% url 'research:home-page' %} style="text-decoration:none">
+                        <img height="40px" src="{% static 'dist/assets/img/icons/logo_pur_beurre.png' %}">
                     </a>
-                    <span class="fs-3">Pur Beurre</span>
-
-                    <div id="navbarResponsive" class="collapse navbar-collapse">
-                        <ul class="navbar-nav ms-auto my-2 my-lg-0 align-items-center">
-                            <form class="row w-form-resp px-0 mx-1 align-items-baseline" method='GET' action='{% url 'research:form-page' %}'><!-- A personalized context_processor is used to have the menu's research_form in every templates headers -->
-                                {{ research_form }}
-                                <input type='submit' id='header-search-button'></input>
-                            </form>
-
-                            {% if user.is_authenticated %}
-                            <li class="nav-item box-resp-logo mx-2">
-                                <a href={% url 'account:user-account'%} title="Mon compte"><div class='fs-3 bi bi-person-circle center-icon'></div></a>
-                            </li>
-                            <li class="nav-item box-resp-logo mx-2">
-                                <a href={% url 'bookmark:bookmark-page' %} title="Mes aliments">
-                                    <img class="navbar-logo" src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
-                                </a>
-                            </li>
-                            <li class="nav-item box-resp-logo mx-2">
-                                <a href={% url 'account:user-logout' %} title="Deconnecter"><div class='fs-3 bi bi-box-arrow-right center-icon'></div></a>
-                            </li>
-                            {% else %}
-                            <li class="nav-item box-resp-logo mx-2">
-                                <a href={% url 'account:user-create' %} title="Créer un compte/Se connecter"><div class='fs-3 bi bi-person-plus-fill center-icon'></div></a>
-                            </li>
-                            <li class="nav-item box-resp-logo mx-2">
-                                <a href={% url 'account:user-create' %} title="Créer un compte/Se connecter pour accéder à Mes aliments">
-                                    <img class="navbar-logo" src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
-                                </a>
-                            </li>
-                            <li class="nav-item box-resp-logo mx-2">
-                                <div class='fs-3 bi bi-box-arrow-right center-icon'></div>
-                            </li>
-                            {% endif %}
-                        </ul>
-                    </div>
                 </div>
-            {% endblock header %}
+                <div class="fs-3 px-1">
+                    Pur Beurre
+                </div>
+            </div>
+            <div class="d-flex col-sm-3 justify-content-between align-items-center">
+                <div>
+                    <form method='GET' action='{% url 'research:form-page' %}'><!-- A personalized context_processor is used to have the menu's research_form in every templates headers -->
+                        {{ research_form }}
+                        <input type='submit' id='header-search-button'></input>
+                    </form>
+                </div>
+                {% if user.is_authenticated %}
+                <a href={% url 'account:user-account'%} title="Mon compte"><div class='fs-3 bi bi-person-circle'></div></a>
+                <a href={% url 'bookmark:bookmark-page' %} title="Mes aliments">
+                    <img height="40px" src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
+                </a>
+                <a href={% url 'account:user-logout' %} title="Deconnecter"><div class='fs-3 bi bi-box-arrow-right'></div></a>
+                {% else %}
+                <a href={% url 'account:user-create' %} title="Créer un compte/Se connecter"><div class='fs-3 bi bi-person-plus-fill'></div></a>
+                <a href={% url 'account:user-create' %} title="Créer un compte/Se connecter pour accéder à Mes aliments">
+                        <img height="40px" src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
+                </a>
+                <div class='fs-3 bi bi-box-arrow-right'></div>
+                {% endif %}
+            </div>
         </header>
+        {% endblock header %}
 
         {% block content %}
         {% endblock content %}
 
-        <footer class='row'>
-            {% block footer %}
-                <div class='col'>Mentions légales --> lien vers new page!</div>
-                <div class='col'>Contact --> lien vers section ci-dessus</div>
-            {% endblock footer %}
+        {% block footer %}
+        <footer class='py-2 mt-auto row bg-rigolo text-moules'>
+                <div class='d-flex col justify-content-center'>Mentions légales --> lien vers new page!</div>
+                <div class='d-flex col justify-content-center'>Contact --> lien vers section ci-dessus</div>
         </footer>
+        {% endblock footer %}
     </div>
 
-        <!-- Bootstrap core JS-->
-        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js'></script>
-        <!-- Core theme JS-->
-        <script src='{% static 'dist/js/scripts.js' %}'></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src='https://cdn.startbootstrap.com/sb-forms-latest.js'></script>
+    <!-- Bootstrap core JS-->
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src='https://cdnjs.cloudflare.com/ajax/divbs/SimpleLightbox/2.1.0/simpleLightbox.min.js'></script>
+    <!-- Core theme JS-->
+    <script src='{% static 'dist/js/scripts.js' %}'></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src='https://cdn.startbootstrap.com/sb-forms-latest.js'></script>
 </body>
 </html>

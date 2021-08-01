@@ -27,12 +27,15 @@ class BookmarksDBHandler(TestCase):
         self.assertIn(Food.objects.get(barcode="3"), user.bookmarks.all())
 
     @mock.patch('bookmark.bookmarks_db_handler.get_user_bookmarks')
-    def test_add_bookmarks_to_context(self, mock_get):
+    def test_list_user_bookmarks_barcodes(self, mock_get):
+
         user = User.objects.get(email="user1@mail.fr")
         mock_get.return_value = user.bookmarks.all()
 
-        self.assertIn("1", bdh.add_bookmarks_to_context("user1@mail.fr"))
-        self.assertIn("2", bdh.add_bookmarks_to_context("user1@mail.fr"))
-        self.assertNotIn("3", bdh.add_bookmarks_to_context("user1@mail.fr"))
-        self.assertNotIn("4", bdh.add_bookmarks_to_context("user1@mail.fr"))
-        self.assertNotIn("5", bdh.add_bookmarks_to_context("user1@mail.fr"))
+        bookmarks_barcodes_list = bdh.list_user_bookmarks_barcodes("user1@mail.fr")
+
+        self.assertIn("1", bookmarks_barcodes_list)
+        self.assertIn("2", bookmarks_barcodes_list)
+        self.assertNotIn("3", bookmarks_barcodes_list)
+        self.assertNotIn("4", bookmarks_barcodes_list)
+        self.assertNotIn("5", bookmarks_barcodes_list)

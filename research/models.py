@@ -23,7 +23,9 @@ class Category(models.Model):
 
 class CategoryFoods(models.Model):
     """
-        A Food + A Category + the rank of the food's category in the hierarchy
+        A Food + A Category
+        + food's category rank in the hierarchy (used for substitutes research algorithm).
+        See research/management/commands/filldb.py --> save_foods_in_db() for more infos about this rank.
     """
     food = models.ForeignKey(Food, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

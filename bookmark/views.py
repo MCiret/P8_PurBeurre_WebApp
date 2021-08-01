@@ -16,8 +16,7 @@ class AddBookmarkView(View):
     def get(self, request, *args, **kwargs):
 
         if request.GET:
-            print("GET")
-            print(request.GET.get('bookmark_food_barcode'))
             bdh.save_bookmark(str(request.user), request.GET.get('bookmark_food_barcode'))
 
+        # Always redisplay the same result page (substitute food products) after user bookmarked one of them
         return redirect('research:result-page', selected_food=kwargs['selected_food'])
