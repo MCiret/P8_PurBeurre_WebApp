@@ -1,7 +1,6 @@
 {
     "categories": [
         "biscuits",
-        "boissons",
         "charcuteries",
         "chocolats",
         "fromages",
@@ -19,5 +18,5 @@
         "viandes",
         "yaourts"
     ],
-    "page": "2"
+    "page": "1"
 }

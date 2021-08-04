@@ -48,7 +48,7 @@ class Command(BaseCommand):
                f"&tag_contains_0=contains" \
                f"&tag_0={category}" \
                f"&fields={','.join(Command.REQUESTED_FIELDS)}" \
-               f"&page_size=100&page={page_nb}&json=true"
+               f"&page_size=50&page={page_nb}&json=true"
 
     @staticmethod
     def save_foods_in_db(off_api_resp_dict: dict):
