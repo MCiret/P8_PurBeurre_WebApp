@@ -12,17 +12,21 @@ html {
     scroll-padding-top: calc(#{$navbar-height} - 1px);
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
+
 //- Page section styling
 .page-section {
-    padding: 2rem 0;
-    border-top: 1px solid $rooibos;
-    text-align: center;
+    padding: 8rem 0;
 }
 
 // Custom utilities for this theme
 .text-white-75 {
     color: fade-out($white, 0.25) !important;
 }
+
 
  // From here : my personalized styles
 
@@ -34,54 +38,72 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $font-family-titles;
 }
 
-footer {
-    border-top: 1px solid $rooibos;
-}
-
 #header-search-button {
     display: none;
 }
 
-#home-photo {
-    background-image: url('../assets/img/Fond_écran_accueil.png/');
+@media (min-width: 360px) and (max-width: 990px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
-.bgd-photo {
+.bg-food {
     background-position: center;
     background-size: contain;
-    background-color: #fff;
+}
+
+.bg-user {
+    background: linear-gradient(to bottom,
+        #{fade-out($brown, 0.2)} 0%,
+        #{fade-out($brown, 0.2)} 100%),
+    url("../assets/img/Home_bg.jpg");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
 }
 
 .bg-rooibos {
     background-color: $rooibos;
 }
+.text-rooibos {
+    color: $rooibos;
+}
+
 .bg-moules {
     background-color: $moules;
 }
+.text-moules {
+    color: $moules;
+}
+
 .bg-rigolo {
     background-color: $rigolo;
 }
+.bg-rigolo-fd3 {
+    background-color: fade-out($rigolo, 0.3);
+    border-radius: 0.5rem;
+}
+.text-rigolo {
+    color: $rigolo;
+}
+
 .bg-caramel {
     background-color: $caramel;
 }
+.text-caramel {
+    color: $caramel;
+}
+
 .bg-biscuit {
     background-color: $biscuit;
 }
 .bg-biscuit-semi-tr {
     background-color: $biscuit-semi-transp;
-}
-
-.text-rooibos {
-    color: $rooibos;
-}
-.text-moules {
-    color: $moules;
-}
-.text-rigolo {
-    color: $rigolo;
-}
-.text-caramel {
-    color: $caramel;
 }
 .text-biscuit {
     color: $biscuit;

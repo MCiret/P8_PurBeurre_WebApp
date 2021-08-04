@@ -45,7 +45,8 @@ class AccountViewsTests(TestCase):
         response_post = self.client.post(reverse('account:user-login'), {
                                          'username': 'user_test@mail.com',
                                          'password': 'tutu3574', 'next': '/'}, follow=True)
-        # the 'next' value is set in the form (see hidden input in the html template) and not in the view so it has to be passed with post params
+        # the 'next' value is set in the form (see hidden input in the html template)
+        # and not in the view so it has to be passed with post params
         # (like the username and password field values)
 
         # Test home page redirect when form is validated and user is logged :
@@ -80,5 +81,5 @@ class AccountViewsTests(TestCase):
         self.client.login(username="user_test@gmail.com", password="titi6789")
 
         response_user_logged = self.client.get(reverse('account:user-logout'), follow=True)
-        
+
         self.assertContains(response_user_logged, "Du gras, oui, mais de qualité !", status_code=200)

@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
 
-{% block content %} <!-- nom du block qu'on veut remplacer dans main.html -->
+{% block header %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-white font-weight-bold">Création d'un compte Pur Beurre</h1>
+                <hr class="divider">
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <form class="text-white-75 justify-content-center" method="POST" action="{% url 'account:user-create' %}">
+                    {% csrf_token %} <!-- Afficher le csrf_token ce qui permet de le générer et automatiquement inclus dans le formulaire -->
 
-
-    <div class="page-section row align-items-center justify-content-center">
-            <form method="POST" action="{% url 'account:user-create' %}">
-                {% csrf_token %} <!-- Afficher le csrf_token ce qui permet de le générer et automatiquement inclus dans le formulaire -->
-
-                {{ form.as_p }}
-
-                <input type="submit" value="Créer le compte"</input>
-            </form>
-            <p class="bgd-rooibos text-center">Si vous avez déjà un compte Pur Beurre : <a href="{% url 'account:user-login' %}">Cliquez ici pour vous connecter...</a></p>
+                    {{ form.as_p }}
+                    <input class="btn btn-primary btn-xl" type='submit' value="Créer le compte"></input>
+                </form>
+                <hr class="divider">
+            </div>
+            <p class="text-white-75 mb-5">Si vous avez déjà un compte Pur Beurre : <a href="{% url 'account:user-login' %}">Cliquez ici pour vous connecter...</a></p>
+        </div>
     </div>
-
-{% endblock content %}
+</header>
+{% endblock header %}

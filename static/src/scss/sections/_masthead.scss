@@ -1,6 +1,6 @@
-// 
+//
 // Masthead
-// 
+//
 
 header.masthead {
     padding-top: 10rem;
@@ -12,7 +12,7 @@ header.masthead {
     background: linear-gradient(to bottom,
         #{fade-out($brown, 0.2)} 0%,
         #{fade-out($brown, 0.2)} 100%),
-    url("../assets/img/bg-masthead.jpg");
+    url("../assets/img/Home_bg.jpg");
 
     background-position: center;
     background-repeat: no-repeat;
@@ -44,3 +44,39 @@ header.masthead {
         }
     }
 }
+
+header.nomast{
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - #{$navbar-height});
+
+    background-color: fade-out($biscuit, 0.3);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        min-height: 100%;
+        padding-top: $navbar-height;
+        padding-bottom: 0;
+
+        p {
+            font-size: 1.15rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        h1 {
+            font-size: 3.5rem;
+        }
+    }
+}
+

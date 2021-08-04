@@ -4,19 +4,19 @@
 
 #mainNav {
     box-shadow: $box-shadow;
-    background-color: $white;
+    background-color: $rigolo;
     transition: background-color 0.2s ease;
 
     .navbar-brand {
-        font-family: $font-family-sans-serif;
+        font-family: $font-family-body;
         font-weight: $font-weight-bold;
-        color: $gray-900;
+        color: fade-out($moules, 0.3);
     }
 
     .navbar-nav {
         .nav-item {
             .nav-link {
-                color: $gray-600;
+                color: fade-out($moules, 0.3);
                 font-family: $font-family-sans-serif;
                 font-weight: $font-weight-bold;
                 font-size: 0.9rem;
@@ -24,11 +24,11 @@
 
                 &:hover,
                 &:active {
-                    color: $primary;
+                    color: $moules;
                 }
 
                 &.active {
-                    color: $primary !important;
+                    color: $moules !important;
                 }
             }
         }
@@ -37,10 +37,10 @@
     @include media-breakpoint-up(lg) {
         // Base styling for the navbar - screen sizes greater than the large breakpoint
         box-shadow: none;
-        background-color: $rooibos;
+        background-color: transparent;
 
         .navbar-brand {
-            color: fade-out($white, 0.3);
+            color: fade-out($rigolo, 0.3);
 
             &:hover {
                 color: $white;
@@ -50,11 +50,11 @@
         .navbar-nav {
             .nav-item {
                 .nav-link {
-                    color: fade-out($white, 0.3);
+                    color: fade-out($rigolo, 0.3);
                     padding: 0 1rem;
 
                     &:hover {
-                        color: $white;
+                        color: $moules;
                     }
                 }
 
@@ -72,20 +72,20 @@
             background-color: $rigolo;
 
             .navbar-brand {
-                color: $gray-900;
+                color: fade-out($moules, 0.3);
 
                 &:hover {
-                    color: $primary;
+                    color: $moules;
                 }
             }
 
             .navbar-nav {
                 .nav-item {
                     .nav-link {
-                        color: $gray-900;
+                        color: fade-out($moules, 0.3);
 
                         &:hover {
-                            color: $primary;
+                            color: $moules;
                         }
                     }
                 }

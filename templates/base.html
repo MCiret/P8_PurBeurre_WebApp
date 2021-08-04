@@ -1,93 +1,84 @@
 <!DOCTYPE html>
 {% load static %}
-<html class="h-100">
-<head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta name='description' content='' />
-    <meta name='author' content='' />
-        <title>
-            {% block title %}
-            Pur Beurre
-            {% endblock title %}
-        </title>
-    <!-- Favicon-->
-    <link rel='icon' type='image/x-icon' href='{% static 'dist/assets/img/icons/favicon.ico' %}'/>
-    <!-- Bootstrap Icons-->
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet' />
-    <!-- Google fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Scope+One' rel='stylesheet' type='text/css'>
-    <!-- SimpleLightbox plugin CSS-->
-    <link href='https://cdnjs.cloudflare.com/ajax/divbs/SimpleLightbox/2.1.0/simpleLightbox.min.css' rel='stylesheet' />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href='{% static 'dist/css/styles.css' %}' rel='stylesheet' />
-</head>
-
-<body class="h-100 bg-biscuit">
-    <div class='d-flex h-100 flex-column container-fluid'>
-
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Pur Beurre</title>
+        <!-- Favicon-->
+        <link rel='icon' type='image/x-icon' href="{% static 'dist/assets/img/icons/favicon.ico' %}" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'dist/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
         {% block nav %}
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="nav-link" href="{% url 'research:home-page' %}"><img class="navbar-logo" src="{% static 'dist/assets/img/icons/logo_pur_beurre.png' %}">
+                <a class="navbar-brand" href="#page-top">Pur Beurre</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <form class="align-self-center" method='GET' action='{% url 'research:form-page' %}'>
+                            {{ hd_research_form }} <!-- A personalized context_processor is used to have the menu's research_form in every templates headers -->
+                            <input class="form-control" type='submit' id='header-search-button'></input>
+                        </form>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href={% url 'account:user-account'%} title="Mon compte"><div class='fs-3 bi bi-person-circle'></div></a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'bookmark:bookmark-page' %} title="Mes aliments">
+                            <img class='navbar-logo bg-rigolo-fd3' src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
+                        </a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'account:user-logout' %} title="Deconnecter"><div class='fs-3 bi bi-box-arrow-right'></div></a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href={% url 'account:user-create' %} title="Créer un compte/Se connecter"><div class='fs-3 bi bi-person-plus-fill'></div></a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'account:user-create' %} title="Créer un compte/Se connecter pour accéder à Mes aliments">
+                            <img class='navbar-logo bg-rigolo-fd3' src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
+                        </a></li>
+                        <li class="nav-item"><div class='nav-link fs-3 bi bi-box-arrow-right'></div></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
         {% endblock nav %}
 
         {% block header %}
-        <header class="row row-cols-auto bg-rigolo text-moules">
-            <div class="d-flex col-xl-9 col-sm-auto justify-content-start">
-                <div>
-                    <a class="my-auto" href={% url 'research:home-page' %} style="text-decoration:none">
-                        <img height="40px" src="{% static 'dist/assets/img/icons/logo_pur_beurre.png' %}">
-                    </a>
-                </div>
-                <div class="fs-3 px-1">
-                    Pur Beurre
-                </div>
-            </div>
-            <div class="d-flex col-sm-3 justify-content-between align-items-center">
-                <div>
-                    <form method='GET' action='{% url 'research:form-page' %}'><!-- A personalized context_processor is used to have the menu's research_form in every templates headers -->
-                        {{ research_form }}
-                        <input type='submit' id='header-search-button'></input>
-                    </form>
-                </div>
-                {% if user.is_authenticated %}
-                <a href={% url 'account:user-account'%} title="Mon compte"><div class='fs-3 bi bi-person-circle'></div></a>
-                <a href={% url 'bookmark:bookmark-page' %} title="Mes aliments">
-                    <img height="40px" src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
-                </a>
-                <a href={% url 'account:user-logout' %} title="Deconnecter"><div class='fs-3 bi bi-box-arrow-right'></div></a>
-                {% else %}
-                <a href={% url 'account:user-create' %} title="Créer un compte/Se connecter"><div class='fs-3 bi bi-person-plus-fill'></div></a>
-                <a href={% url 'account:user-create' %} title="Créer un compte/Se connecter pour accéder à Mes aliments">
-                        <img height="40px" src="{% static 'dist/assets/img/icons/Menu_icon_carrot.svg' %}">
-                </a>
-                <div class='fs-3 bi bi-box-arrow-right'></div>
-                {% endif %}
-            </div>
-        </header>
         {% endblock header %}
 
         {% block content %}
         {% endblock content %}
 
+        <!-- Footer-->
         {% block footer %}
-        <footer class='py-2 mt-auto row bg-rigolo text-moules'>
-                <div class='d-flex col justify-content-center'>Mentions légales --> lien vers new page!</div>
-                <div class='d-flex col justify-content-center'>Contact --> lien vers section ci-dessus</div>
+        <footer class="bg-rigolo py-3 mt-auto">
+            <div class="container px-4 px-lg-5">
+                <div class="row">
+                    <div class="col small text-center text-moules"><a class="text-decoration-none text-moules" href="{% url 'research:legal-page' %}">Mentions légales</a></div>
+                    <div class="col small text-center text-moules"><a class="text-decoration-none text-moules" href="{% url 'research:home-page' %}#contact">Contact</a></div>
+                </div>
+            </div>
         </footer>
         {% endblock footer %}
-    </div>
-
-    <!-- Bootstrap core JS-->
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script>
-    <!-- SimpleLightbox plugin JS-->
-    <script src='https://cdnjs.cloudflare.com/ajax/divbs/SimpleLightbox/2.1.0/simpleLightbox.min.js'></script>
-    <!-- Core theme JS-->
-    <script src='{% static 'dist/js/scripts.js' %}'></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src='https://cdn.startbootstrap.com/sb-forms-latest.js'></script>
-</body>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- SimpleLightbox plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+        <!-- Core theme JS-->
+        <script src='{% static 'dist/js/scripts.js' %}'></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
 </html>

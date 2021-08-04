@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 
-{% block content %} <!-- nom du block qu'on veut remplacer dans main.html -->
-
-    <div id="home-photo" class="row page-section fw-bolder bgd-photo align-items-center justify-content-center" style="font-size: 1.5em">
-        <div class="col-auto">
-            <p class="bgd-rooibos p-2">Hello</br>{{ user_name }} !</p>
+{% block header %}
+<header class="nomast">
+    <div class="container px-4 px-lg-5">
+        <div class="bg-user row gx-4 gx-lg-5 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="text-white font-weight-bold">Hello<br>{{ user_name }} !</h1>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h2 class="mt-5 text-center text-moules mt-0">{{ user_mail }}</h2>
+            </div>
         </div>
     </div>
-    <div class="page-section">
-        {{ user_mail }}
-    </div>
-
-{% endblock content %}
+</header>
+{% endblock header %}

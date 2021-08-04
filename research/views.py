@@ -2,11 +2,18 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, View, DetailView
 import research.substitutes_research as subr
 from research.models import Food
+from research.forms import ResearchForm
+
 import bookmark.bookmarks_db_handler as bdh
 
 
 class HomePageView(TemplateView):
     template_name = 'research/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['research_form'] = ResearchForm()
+        return context
 
 
 class ResultView(View):

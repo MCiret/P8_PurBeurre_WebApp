@@ -15,18 +15,13 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         """ Personalized command to run the OFF API requests and the database filling """
-        off_api_responses_list = []  # Temporary data checking TO DELETE ################
         params_dict = Command.get_params_dict_from_json("research/management/off_research_params.json")
         for category in params_dict['categories']:
             resp = requests.get(Command.build_get_request(category, params_dict['page']))
             if resp.status_code == 200:
                 resp_dict = resp.json()
                 Command.save_foods_in_db(resp_dict)
-                off_api_responses_list.append(resp_dict)  # Temporary data checking TO DELETE ################
         Command.update_json_page_number_param("research/management/off_research_params.json")
-        ############################# Temporary data checking TO DELETE ################
-        Command.write_valid_foods(off_api_responses_list)
-        ######################################################################
 
     @staticmethod
     def get_params_dict_from_json(json_file: str) -> dict:
@@ -93,13 +88,3 @@ class Command(BaseCommand):
         if len(food_dict['categories_tags']) < 3:
             return False
         return True
-
-    ####################### Temporary data checking TO DELETE ################
-    @staticmethod
-    def write_valid_foods(off_api_json_responses: 'list[dict][dict]'):
-        keeped_foods_list = [food for resp_dict in off_api_json_responses
-                             for food in resp_dict["products"]
-                             if Command.is_valid_food(food)]
-        with open("final_products.json", "w", encoding="utf-8") as of:
-            json.dump(keeped_foods_list, of, indent=4, sort_keys=True, ensure_ascii=False)
-    ###########################################################################

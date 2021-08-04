@@ -1,55 +1,69 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
-
-    {% if research_keywords %}
-        <div class="row page-section bg-biscuit text-moules">
-            <p class="fs-3 text-rooibos fw-bolder"> Vous avez saisi : {{ research_keywords }}</p>
-            {% if many_researched_foods %}
-                <p class="lead fw-bolder">Plusieurs aliments correspondent à votre recherche... Veuillez en choisir un :</p>
-                {% for food in many_researched_foods %}
-                    <p class="col-xl-4">
-                    <a href="{% url 'research:result-page' selected_food=food.barcode %}">{{ food.name }}</a> (Nutriscore {{ food.nutri_score|upper }})
-                    </p>
-                {% endfor %}
-            {% else %}
-                Aucun aliment ne correspond à votre recherche...
-            {% endif %}
-        </div>
-
-        {% elif the_researched_food %}
-            <div class="row justify-content-center page-section bgd-photo" style="background-image: url('{{ the_researched_food.image_url }}')">
-                <h2 class="text-moules rounded-3 bg-biscuit-semi-tr col-auto">Aliment à remplacer : {{ the_researched_food.name }} (Nutriscore {{ the_researched_food.nutri_score|upper }})</h2>
-                <p> **temporary check** ⮡ catégorie(s) : {% for cat in the_researched_food.categories %} {{ cat.name }} {% endfor %}</p>
+{% block header %}
+<!-- Masthead-->
+{% if research_keywords %}
+<header class="nomast">
+    <div class="container px-4 px-lg-5 h-100">
+        <h1 class="text-moules font-weight-bold text-center">Vous avez saisi : {{ research_keywords }}</h1>
+        <hr class="divider">
+        {% if many_researched_foods %}
+        <h2 class="text-moules font-weight-bold text-center mb-3">Plusieurs aliments correspondent à votre recherche...<br>Veuillez en choisir un :</h2>
+        <div class="row justify-content-around align-items-center">
+            {% for food in many_researched_foods %}
+            <div class="col-xl-4 text-center">
+                <div class="mb-2">
+                    <a href="{% url 'research:result-page' selected_food=food.barcode %}" class="text-decoration-none">
+                        <img class="w-50 img-thumbnail" src="{{ food.image_url }}" alt="food">
+                    </a>
+                    <img class="align-top" height="75" src="{% static 'dist/assets/img/Nutriscore_' %}{{ food.nutri_score }}.png" alt="nutriscore">
+                </div>
+                <p class="text-moules fw-bold">{{ food.name }}</p>
             </div>
-            <div class="page-section row">
-                {% if substitutes_foods %}
-                    {% for food in substitutes_foods %}
-                        <div class="col-xl-4">
-                            <div>
-                                <a href="{% url 'research:food-page' pk=food.barcode %}" title="Voir le détail de l'aliment"><img class="mb-2" src="{{ food.image_url }}"></a>
-                                <img class="align-top" height="75px" src="{% static 'dist/assets/img/Nutriscore_' %}{{ food.nutri_score }}.png">
-                            </div>
-                            <p class="fw-bold">{{ food.name }}</p>
-
-                            {% if user.is_authenticated %}
-                                {% if food.barcode in bookmarks %}
-                                    <p>Sauvegardé 🗹</a></p>
-                                {% else %}
-                                    <form class="mt-1" method="GET" action="{% url 'bookmark:bookmark-add' selected_food=the_researched_food.barcode %}"><!-- A personalized context_processor is used to have the menu's research_form in every templates headers -->
-                                        <input type="submit" value="Sauvegarder"></input>
-                                        <input type="hidden" name='bookmark_food_barcode' value={{ food.barcode }}></input>
-                                    </form>
-                                {% endif %}
-                            {% endif %}
-
-                            ⮡ catégorie(s) : {% for cat in food.categories %} {{ cat.name }} {% endfor %}</br></br>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p>Aucun substitut n'a été trouvé...</p>
+            {% endfor %}
+        {% else %}
+        <h2 class="text-white font-weight-bold">Aucun aliment ne correspond à votre recherche...</h2>
+        {% endif %}
+        </div>
+    </div>
+</header>
+{% elif the_researched_food %}
+<header class="nomast">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="rounded-pill row flex-column justify-content-around align-items-center bg-food" style="background-image: url('{{ the_researched_food.image_url }}');">
+            <h1 class="rounded-pill col-auto text-white bg-biscuit-semi-tr font-weight-bold text-center">{{ the_researched_food.name }}</h1>
+            <img class="w-auto" height="75" src="{% static 'dist/assets/img/Nutriscore_' %}{{ the_researched_food.nutri_score }}.png" alt="nutriscore">
+        </div>
+        <hr class="divider">
+        {% if substitutes_foods %}
+        <div class="row justify-content-around align-items-center">
+            {% for sub_food in substitutes_foods %}
+            <div class="col-xl-4 text-center">
+                <div class="mb-2">
+                    <a href="{% url 'research:food-page' pk=sub_food.barcode %}" title="Voir le détail de l'aliment" class="text-decoration-none">
+                        <img class="w-50 img-thumbnail" src="{{ sub_food.image_url }}" alt="food">
+                    </a>
+                    <img class="align-top" height="75" src="{% static 'dist/assets/img/Nutriscore_' %}{{ sub_food.nutri_score }}.png" alt="nutriscore">
+                </div>
+                <p class="mb-0 text-moules fw-bold">{{ sub_food.name }}</p>
+                {% if user.is_authenticated %}
+                    {% if sub_food.barcode in bookmarks %}
+                    <p>Sauvegardé 🗹</p>
+                    {% else %}
+                    <form class="mb-3" method="GET" action="{% url 'bookmark:bookmark-add' selected_food=the_researched_food.barcode %}">
+                        <input class="btn btn-primary btn-xl" type="submit" value="Sauvegarder"/>
+                        <input type="hidden" name="bookmark_food_barcode" value="{{ sub_food.barcode }}"/>
+                    </form>
+                    {% endif %}
                 {% endif %}
             </div>
+            {% endfor %}
+        {% else %}
+        <h2 class="text-white font-weight-bold">Aucun substitut n'a été trouvé...</h2>
         {% endif %}
-{% endblock content %}
+        </div>
+    </div>
+</header>
+{% endif %}
+{% endblock header %}

@@ -149,4 +149,4 @@ class FilldbTests(TransactionTestCase):
         self.assertEqual(gazpacho_food_categories_list,
                          ["en:refrigerated-soups", "en:gazpacho", "en:refrigerated-meals",
                           "en:cold-soups", "en:vegetable-soups", "en:meals"])
-                         # see research/tests/mock_off_api_response.json
+        # see research/tests/mock_off_api_response.json
