@@ -1,2 +1,4 @@
 env/
 t
+static/node_modules/
+static/src/
