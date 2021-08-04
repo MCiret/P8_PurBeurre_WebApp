@@ -1,0 +1,24 @@
+//
+// Colors
+//
+
+//- Override and add to color system
+$orange: #f4623a;
+$brown: #5c4d42;
+
+
+// Pur Beurre's style guide colors
+$rooibos: #c45525;
+$moules: #345a61;
+$rigolo: #86ebe6;
+$caramel: #de9440;
+$biscuit: #e8a75d;
+
+$biscuit-semi-transp : rgba(232, 167, 93, 0.5);
+
+//- Override primary color
+$primary: $rooibos;
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+$min-contrast-ratio: 3;
