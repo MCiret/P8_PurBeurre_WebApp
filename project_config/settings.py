@@ -26,8 +26,8 @@ SECRET_KEY = os.environ.get('DJANGO_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set "development" as default value then if DJANGO_ENV does not exist then it is not production enviro.
-DEBUG = False if os.environ.get("DJANGO_ENV", "development") == "production" else True
-# DEBUG = True
+# DEBUG = False if os.environ.get("DJANGO_ENV", "development") == "production" else True
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
