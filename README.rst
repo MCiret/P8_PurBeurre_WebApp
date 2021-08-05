@@ -101,12 +101,12 @@ Application
 
 4) Install required libraries : see the Required libraries section below.
 
-5) Environment variables to be set :
+5) Environment variables to be set/adapted :
 
     * project_config/settings.py :
 
-        - variable SECRET_KEY (key to securing signed data)
-        - variable DATABASES['default']['PASSWORD']
+        - variable SECRET_KEY (key to securing signed data) set with DJANGO_KEY enviro. variable name
+        - variable DATABASES['default']['PASSWORD'] set with POSTGRE_PWD enviro. variable name
 
 6) Install and fill the database (see db_settingup_ below).
 

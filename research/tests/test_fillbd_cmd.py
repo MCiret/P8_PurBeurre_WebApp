@@ -47,7 +47,7 @@ class FilldbTestsExceptSQL(TestCase):
                          "&tag_contains_0=contains"
                          "&tag_0=category"
                          "&fields=f1,f2,f3"
-                         "&page_size=100&page=page_nb&json=true")
+                         "&page_size=50&page=page_nb&json=true")
 
     @mock.patch('research.management.commands.filldb.Command.REQUESTED_FIELDS', new_callable=mock.PropertyMock)
     def test_is_valid_food(self, mock_fields):
