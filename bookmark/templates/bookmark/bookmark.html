@@ -15,7 +15,7 @@
                     <a href="{% url 'research:food-page' pk=bookmark.barcode %}" title="Voir le détail de l'aliment" class="text-decoration-none">
                         <img class="w-50 img-thumbnail" src="{{ bookmark.image_url }}" alt="food">
                     </a>
-                    <img class="align-top" height="75" src="{% static 'dist/assets/img/Nutriscore_' %}{{ bookmark.nutri_score }}.png" alt="nutriscore">
+                    <img class="align-top" height="75" src="{% static 'dist/assets/img/Nutriscore_'|add:bookmark.nutri_score|add:'.png' %}" alt="nutriscore">
                 </div>
                 <p class="mb-0 text-moules fw-bold">{{ bookmark.name }}</p>
             </div>

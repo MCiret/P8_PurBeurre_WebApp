@@ -31,8 +31,6 @@ DEBUG = False if os.environ.get("DJANGO_ENV", "development") == "production" els
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
-ADMINS = [('Marie', 'ciret.m@gmail.com')]
-
 # Application definition
 
 INSTALLED_APPS = [

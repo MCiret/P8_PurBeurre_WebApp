@@ -17,7 +17,7 @@
                     <a href="{% url 'research:result-page' selected_food=food.barcode %}" class="text-decoration-none">
                         <img class="w-50 img-thumbnail" src="{{ food.image_url }}" alt="food">
                     </a>
-                    <img class="align-top" height="75" src="{% static 'dist/assets/img/Nutriscore_' %}{{ food.nutri_score }}.png" alt="nutriscore">
+                    <img class="align-top" height="75" src="{% static 'dist/assets/img/Nutriscore_'|add:food.nutri_score|add:'.png' %}" alt="nutriscore">
                 </div>
                 <p class="text-moules fw-bold">{{ food.name }}</p>
             </div>
@@ -33,7 +33,7 @@
     <div class="container px-4 px-lg-5 h-100">
         <div class="rounded-pill row flex-column justify-content-around align-items-center bg-food" style="background-image: url('{{ the_researched_food.image_url }}');">
             <h1 class="rounded-pill col-auto text-white bg-biscuit-semi-tr font-weight-bold text-center">{{ the_researched_food.name }}</h1>
-            <img class="w-auto" height="75" src="{% static 'dist/assets/img/Nutriscore_' %}{{ the_researched_food.nutri_score }}.png" alt="nutriscore">
+            <img class="w-auto" height="75" src="{% static 'dist/assets/img/Nutriscore_'|add:the_researched_food.nutri_score|add:'.png' %}" alt="nutriscore">
         </div>
         <hr class="divider">
         {% if substitutes_foods %}
@@ -44,7 +44,7 @@
                     <a href="{% url 'research:food-page' pk=sub_food.barcode %}" title="Voir le détail de l'aliment" class="text-decoration-none">
                         <img class="w-50 img-thumbnail" src="{{ sub_food.image_url }}" alt="food">
                     </a>
-                    <img class="align-top" height="75" src="{% static 'dist/assets/img/Nutriscore_' %}{{ sub_food.nutri_score }}.png" alt="nutriscore">
+                    <img class="align-top" height="75" src="{% static 'dist/assets/img/Nutriscore_'|add:sub_food.nutri_score|add:'.png' %}" alt="nutriscore">
                 </div>
                 <p class="mb-0 text-moules fw-bold">{{ sub_food.name }}</p>
                 {% if user.is_authenticated %}
