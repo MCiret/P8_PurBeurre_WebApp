@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set "development" as default value then if DJANGO_ENV does not exist then it is not production enviro.
 DEBUG = False if os.environ.get("DJANGO_ENV", "development") == "production" else True
-# DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -129,8 +129,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
