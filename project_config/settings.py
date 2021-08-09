@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from django.utils.log import DEFAULT_LOGGING
 import os
 import django_heroku
 
@@ -26,12 +27,12 @@ SECRET_KEY = os.environ.get('DJANGO_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set "development" as default value then if DJANGO_ENV does not exist then it is not production enviro.
-DEBUG = False if os.environ.get("DJANGO_ENV", "development") == "production" else True
-# DEBUG = False
+# DEBUG = False if os.environ.get("DJANGO_ENV", "development") == "production" else True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
-# Application definition
+# DEFAULT_LOGGING['handlers']['console']['filters'] = [] # uncomment to have 500 error in terminal
 
 INSTALLED_APPS = [
     'django.contrib.admin',

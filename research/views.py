@@ -3,7 +3,6 @@ from django.views.generic import TemplateView, View, DetailView
 import research.substitutes_research as subr
 from research.models import Food
 from research.forms import ResearchForm
-
 import bookmark.bookmarks_db_handler as bdh
 
 

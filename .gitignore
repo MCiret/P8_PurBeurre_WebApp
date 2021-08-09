@@ -3,3 +3,4 @@ t
 static/node_modules/
 static/src/
 .coverage
+htmlcov/
