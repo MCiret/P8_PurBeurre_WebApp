@@ -1220,3 +1220,127 @@ JavaScript error: https://cdn.startbootstrap.com/sb-forms-latest.js, line 5: Err
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1628601759586	geckodriver	INFO	Listening on 127.0.0.1:37579
+1628601760542	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileeMngrB"
+1628601769029	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileeMngrB/search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 770))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+1628601783448	Marionette	INFO	Listening on port 40715
+1628601783784	Marionette	WARN	TLS certificate errors will be ignored for this session
+1628601787134	geckodriver	INFO	Listening on 127.0.0.1:53001
+1628601788049	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefsunmG"
+1628601797039	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilefsunmG/search.json.mozlz4", (void 0)))
+1628601801223	Marionette	INFO	Listening on port 35835
+1628601801258	Marionette	WARN	TLS certificate errors will be ignored for this session
+1628601883734	geckodriver	INFO	Listening on 127.0.0.1:58757
+1628601885252	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiledJHEk6"
+1628601901454	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofiledJHEk6/search.json.mozlz4", (void 0)))
+[Parent 12907, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-epKzUa/firefox-90.0.2+build1/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+[Parent 12907, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-epKzUa/firefox-90.0.2+build1/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc:19
+1628601917114	Marionette	INFO	Listening on port 44031
+1628601917571	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.startbootstrap.com/sb-forms-latest.js, line 5: Error: GET_ELEMENTS: page-top -> form[data-sb-form-api-token]
+JavaScript error: https://cdn.startbootstrap.com/sb-forms-latest.js, line 5: Error: GET_ELEMENTS: page-top -> form[data-sb-form-api-token]
+1628601935855	Marionette	INFO	Stopped listening on port 44031
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1628601946239	Marionette	INFO	Stopped listening on port 35835
+1628601947163	geckodriver	INFO	Listening on 127.0.0.1:42015
+1628601947861	Marionette	INFO	Stopped listening on port 40715
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1628601948174	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZwUfEz"
+1628601955648	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileZwUfEz/search.json.mozlz4", (void 0)))
+1628601960045	Marionette	INFO	Listening on port 43255
+1628601960091	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.startbootstrap.com/sb-forms-latest.js, line 5: Error: GET_ELEMENTS: page-top -> form[data-sb-form-api-token]
+JavaScript error: https://cdn.startbootstrap.com/sb-forms-latest.js, line 5: Error: GET_ELEMENTS: page-top -> form[data-sb-form-api-token]
+1628601971578	Marionette	INFO	Stopped listening on port 43255
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1628602282807	geckodriver	INFO	Listening on 127.0.0.1:37267
+1628602282812	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJCCDPF"
+1628602319163	geckodriver	INFO	Listening on 127.0.0.1:52273
+1628602319166	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilez46ToL"
+1628602320294	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilez46ToL/search.json.mozlz4", (void 0)))
+1628602322806	Marionette	INFO	Listening on port 32867
+1628602323093	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.startbootstrap.com/sb-forms-latest.js, line 5: Error: GET_ELEMENTS: page-top -> form[data-sb-form-api-token]
+JavaScript error: https://cdn.startbootstrap.com/sb-forms-latest.js, line 5: Error: GET_ELEMENTS: page-top -> form[data-sb-form-api-token]
+1628602334482	Marionette	INFO	Stopped listening on port 32867
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1628602335600	geckodriver	INFO	Listening on 127.0.0.1:33745
+1628602336610	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile2T6urD"
+1628602338640	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile2T6urD/search.json.mozlz4", (void 0)))
+1628602341443	Marionette	INFO	Listening on port 38299
+1628602341570	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://cdn.startbootstrap.com/sb-forms-latest.js, line 5: Error: GET_ELEMENTS: page-top -> form[data-sb-form-api-token]
+JavaScript error: https://cdn.startbootstrap.com/sb-forms-latest.js, line 5: Error: GET_ELEMENTS: page-top -> form[data-sb-form-api-token]
+1628602352639	Marionette	INFO	Stopped listening on port 38299
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1628767231232	geckodriver	INFO	Listening on 127.0.0.1:49705
+1628767232198	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileSM8jXr"
+1628767236901	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileSM8jXr/search.json.mozlz4", (void 0)))
+1628767243869	Marionette	INFO	Listening on port 37451
+1628767244052	Marionette	WARN	TLS certificate errors will be ignored for this session
+1628767244858	geckodriver	INFO	Listening on 127.0.0.1:55745
+1628767245862	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile35uAop"
+1628767249087	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile35uAop/search.json.mozlz4", (void 0)))
+1628767253734	Marionette	INFO	Listening on port 36807
+1628767253796	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1628768676010	Marionette	INFO	Stopped listening on port 36807
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1628768677561	Marionette	INFO	Stopped listening on port 37451
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+

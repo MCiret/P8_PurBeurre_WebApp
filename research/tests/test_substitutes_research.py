@@ -25,7 +25,7 @@ class SubstitutesResearchTestsExceptSQL(TestCase):
         self.assertEqual(mock_filter.call_count, 4)
 
     @mock.patch('django.db.models.QuerySet.filter')
-    def test_look_for_matching_user_research_according_to_db_query_result(self, mock_filter):
+    def test_look_for_foods_matching_user_research_according_to_db_query_result(self, mock_filter):
         # if user research keywords matches with several foods in db
         mock_filter.return_value = [1, 1, 1, 1, 1]
         self.assertEqual(subr.look_for_foods_matching_user_research("keywords"), {

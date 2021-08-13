@@ -3,7 +3,6 @@ from selenium.webdriver import Firefox
 from selenium.webdriver.common.keys import Keys
 import time
 
-from research.views import Food
 
 class ResearchFormTest(TestCase):
 
