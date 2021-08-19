@@ -1,7 +1,7 @@
 from django.test import TestCase
 from unittest import mock
 from django.urls import reverse
-import crud_functions_to_test as crud
+import filldb_tests_module.crud_functions_to_test as crud
 from account.models import User
 from account.views import UserAccountView
 

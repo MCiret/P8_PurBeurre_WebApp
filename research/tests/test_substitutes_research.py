@@ -1,7 +1,7 @@
 from django.test import TestCase, TransactionTestCase
 from unittest import mock
 import research.substitutes_research as subr
-import crud_functions_to_test as crud
+import filldb_tests_module.crud_functions_to_test as crud
 from research.models import Food, Category
 
 

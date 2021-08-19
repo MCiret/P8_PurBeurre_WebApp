@@ -1,6 +1,6 @@
 from django.test import TestCase
 from unittest import mock
-import crud_functions_to_test as crud
+import filldb_tests_module.crud_functions_to_test as crud
 import bookmark.bookmarks_db_handler as bdh
 from account.models import User
 from research.models import Food
