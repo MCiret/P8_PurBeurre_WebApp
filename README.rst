@@ -5,6 +5,9 @@
 
 |Status badge| |UIlanguage badge| |vPython badge| |vBootstrap badge|
 
+
+ℹ️ This is a first version of this project to be deployed on PaaS like Heroku **==> See** https://github.com/MCiret/P11_Upgrade = updated version of this project (i.e more features, installation/usage with *pipenv* dependencies manager OR Docker)
+
 *****************
 TABLE OF CONTENTS
 *****************
