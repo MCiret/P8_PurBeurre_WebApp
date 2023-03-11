@@ -11,7 +11,7 @@ class User(AbstractUser):
     username = models.CharField(null=True, max_length=25)
     # To use the email as user's identifier
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ('',)
+    REQUIRED_FIELDS = []
 
     bookmarks = models.ManyToManyField(Food)
 

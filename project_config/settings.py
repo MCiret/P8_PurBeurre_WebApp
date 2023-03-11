@@ -11,9 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import environ # django-environ package
 from django.utils.log import DEFAULT_LOGGING
 import os
-import django_heroku
+# import django_heroku
+
+env = environ.Env() # create environment variable
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,16 +26,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_KEY')
+SECRET_KEY = env('DJANGO_SECRET_KEY_P8')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set "development" as default value then if DJANGO_ENV does not exist then it is not production enviro.
 # DEBUG = False if os.environ.get("DJANGO_ENV", "development") == "production" else True
-DEBUG = False
+DEBUG = env.bool("DEBUG")
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
-# DEFAULT_LOGGING['handlers']['console']['filters'] = [] # uncomment to have 500 error in terminal
+DEFAULT_LOGGING['handlers']['console']['filters'] = [] # uncomment to have 500 error in terminal
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -145,4 +148,4 @@ AUTH_USER_MODEL = 'account.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Deployment
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
