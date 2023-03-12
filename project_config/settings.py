@@ -33,7 +33,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY_P8')
 # DEBUG = False if os.environ.get("DJANGO_ENV", "development") == "production" else True
 DEBUG = env.bool("DEBUG")
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
 DEFAULT_LOGGING['handlers']['console']['filters'] = [] # uncomment to have 500 error in terminal
 
