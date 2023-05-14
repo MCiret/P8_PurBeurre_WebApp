@@ -2,6 +2,7 @@ env/
 t
 static/node_modules/
 static/src/
+static/scripts/
 .coverage
 htmlcov/
 .env
