@@ -6,7 +6,7 @@
 |Status badge| |UIlanguage badge| |vPython badge| |vBootstrap badge|
 
 
-🔗 https://purbeurre-mcda.tk/
+🔗 https://pur-beurre.p8.mc-dapy.fr/
 
 *****************
 TABLE OF CONTENTS
