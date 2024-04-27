@@ -13,6 +13,7 @@ TABLE OF CONTENTS
 *****************
 
 1. `DESCRIPTION`_
+    * `Learning project`_
     * `Summary`_
     * `Features`_
 
@@ -25,6 +26,19 @@ TABLE OF CONTENTS
 
 DESCRIPTION
 ===========
+
+Learning project
+----------------
+This Web app has been developed during OpenClassrooms training course "Python Application Development".
+
+**GOAL** :
+
+* 1st Django Web application
+* Follow client features and interface requirements (including pages prototypes using Bootstrap theme and style guide).
+* Test Driven Development
+* Database modeling
+* Get data from OpenFoodFacts API and populate database
+* User Account (login) management
 
 Summary
 -------
