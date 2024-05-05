@@ -94,36 +94,24 @@ Application
 
 3) Set up a virtual environment :
 
-    NB: the symbol $ flags the commands prompt
+    3.1) ``$ pip install pipx`` then ``$ pipx install pipenv``
 
-    * UNIX operating system :
-        3.1) Install the Python module : ``$ pip install venv``
+    3.2) Create a virtual environment and Install project requirements (Pipfile) : ``$ pipenv install``
 
-        3.2) Navigate to the project main directory using command prompt : ``$ cd .....``
-
-        3.3) Create a virtual environment : ``$ python -m venv name_of_your_virtual_env``
-
-        3.4) Activate the virtual environment : ``$ source name_of_your_virtual_env/bin/activate``
+    3.3) Activate the virtual environment : ``$ pipenv shell``
 
 
-    * DOS operating system :
-        3.1) Install the Python module : ``$ pip install venv``
-
-        3.2) Navigate to the project main directory using command prompt : ``$ cd .....``
-
-        3.3) Create a virtual environment : ``$ py -m venv name_of_your_virtual_env``
-
-        3.4) Activate the virtual environment : ``$ .\name_of_your_virtual_env\Scripts\activate``
-
-
-4) Install required libraries : see the Required libraries section below.
-
-5) Environment variables to be set/adapted :
+4) Environment variables to be set/adapted :
 
     * project_config/settings.py :
 
-        - variable SECRET_KEY (key to securing signed data) set with DJANGO_KEY enviro. variable name
-        - variable DATABASES['default']['PASSWORD'] set with POSTGRE_PWD enviro. variable name
+        - DJANGO_SECRET_KEY_P8 used to set the SECRET_KEY Django variable (key to secure signed data)
+        - Database connection :
+            - DB_NAME
+            - DB_USER
+            - DB_PWD
+            - DB_HOST
+            - DB_PORT
 
 6) Install and fill the database (see db_settingup_ below).
 
