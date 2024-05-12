@@ -105,18 +105,21 @@ Application
     * project_config/settings.py :
 
         - DJANGO_SECRET_KEY_P8 used to set the SECRET_KEY Django variable (key to secure signed data)
-        - Database connection :
+        - Database connection (see 5. below) :
             - DB_NAME
             - DB_USER
             - DB_PWD
             - DB_HOST
             - DB_PORT
 
-6) Install and fill the database (see db_settingup_ below).
+5) Install and fill the database (see db_settingup_ below).
 
-7) Run the code source main.py file : (UNIX) ``$ python manage.py runserver`` (DOS) ``$ py manapge.py runserver``
+6) Run the code source main.py file :
 
-8) Follow the http:// link given by Django starting message on the terminal output (usually http://127.0.0.1:8000/) to display interface in your browser.
+    - (UNIX) ``$ python manage.py runserver``
+    - (DOS) ``$ py manapge.py runserver``
+
+7) Follow the http:// link given by Django starting message on the terminal output (usually http://127.0.0.1:8000/) to display interface in your browser.
 
 Database
 --------
@@ -125,8 +128,15 @@ Database
 
 1) Install your favorite SGDB + Create an empty database
 2) Set up Django project : the DATABASES variable (project_config/settings.py)
-3) Database migration (i.e tables creation) : (UNIX) ``$ python manage.py migrate`` (DOS) ``$ py manage.py migrate``
-4) Fill db : run personalised Django command to request Open Food Facts API and insert food products (and categories) in database : (UNIX) ``$ python manage.py filldb`` (DOS) ``$ py manage.py filldb``
+3) Database migration (i.e tables creation) :
+
+    - (UNIX) ``$ python manage.py migrate``
+    - (DOS) ``$ py manage.py migrate``
+
+4) Fill db : run personalised Django command to request Open Food Facts API and insert food products (and categories) in database : 
+
+    - (UNIX) ``$ python manage.py filldb``
+    - (DOS) ``$ py manage.py filldb``
 
 
 OPEN FOOD FACTS API
