@@ -6,7 +6,7 @@
 |Status badge| |UIlanguage badge| |vPython badge| |vBootstrap badge|
 
 
-🔗 https://pur-beurre.p8.mc-dapy.fr/
+🔗 ❌ https://pur-beurre.p8.mc-dapy.fr/
 
 *****************
 TABLE OF CONTENTS
@@ -147,7 +147,7 @@ OPEN FOOD FACTS API
 **Warning** if you modify the fields parameter then you will have to adapt the front-end part of the application.
 
 **PARAMS values** see research/management/off_research_params.json
-*NB : each time filldb command is runned, the page_nb parameter is incremented ==> to get new food products with next run..*
+*ℹ️ : each time filldb command is runned, the page_nb parameter is incremented ==> to get new food products with next run..*
 
 
 .. |vPython badge| image:: https://img.shields.io/badge/Python-3.11-blue.svg
