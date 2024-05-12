@@ -6,7 +6,7 @@ from research.models import Food, Category
 
 
 class Command(BaseCommand):
-    """ $ py(thon) manage.py filldb """
+    """ USAGE : $ py(thon) manage.py filldb """
 
     help = 'Requests OFF API to get some foods to fill the database.'
 
@@ -86,5 +86,7 @@ class Command(BaseCommand):
             if field not in food_dict.keys():
                 return False
         if len(food_dict['categories_tags']) < 3:
+            return False
+        if len(food_dict['nutriscore_grade']) != 1:
             return False
         return True

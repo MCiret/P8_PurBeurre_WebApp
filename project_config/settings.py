@@ -14,7 +14,6 @@ from pathlib import Path
 import environ # django-environ package
 from django.utils.log import DEFAULT_LOGGING
 import os
-# import django_heroku
 
 env = environ.Env() # create environment variable
 
@@ -32,6 +31,58 @@ SECRET_KEY = env('DJANGO_SECRET_KEY_P8')
 # Set "development" as default value then if DJANGO_ENV does not exist then it is not production enviro.
 # DEBUG = False if os.environ.get("DJANGO_ENV", "development") == "production" else True
 DEBUG = env.bool("DEBUG")
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'formatters': {
+        'django.server': {
+            '()': 'django.utils.log.ServerFormatter',
+            'format': '[{server_time}] {message} ({levelname})',
+            'style': '{',
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        },
+        'django.server': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'django.server',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        # 'django': {
+        #     'handlers': ['console', 'mail_admins'],
+        #     'level': 'INFO',
+        # },
+        'django.server': {
+            'handlers': ['django.server'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+        },
+    }
+}
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 

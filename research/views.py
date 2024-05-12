@@ -22,7 +22,7 @@ class ResultView(View):
 
         # if it's user's research (keywords submitting) :
         if request.GET:
-            context = subr.researchs_in_db(research_keywords=request.GET.get('research'))
+            context = subr.db_food_search(search_keywords=request.GET.get('research'))
 
         # when user's research had returned several foods and user had selected one
         elif kwargs:
@@ -31,7 +31,7 @@ class ResultView(View):
                 # Add user's bookmarks in the context (to replace the "Sauvegarder" button by "Sauvegardé 🗹" text)
                 context.update({"bookmarks": bdh.list_user_bookmarks_barcodes(str(request.user))})
 
-            context.update(subr.researchs_in_db(food_barcode=kwargs['selected_food']))
+            context.update(subr.db_food_search(food_barcode=kwargs['selected_food']))
 
         return render(request, self.template_name, context)
 
