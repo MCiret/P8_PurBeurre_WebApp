@@ -147,6 +147,7 @@ OPEN FOOD FACTS API
 **Warning** if you modify the fields parameter then you will have to adapt the front-end part of the application.
 
 **PARAMS values** see research/management/off_research_params.json
+
 *ℹ️ : each time filldb command is runned, the page_nb parameter is incremented ==> to get new food products with next run..*
 
 
