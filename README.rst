@@ -139,6 +139,8 @@ Database
     - (DOS) ``$ py manage.py filldb``
 
 
+|db_model_img|
+
 OPEN FOOD FACTS API
 ===================
 
@@ -156,3 +158,5 @@ OPEN FOOD FACTS API
 
 .. |Status badge| image:: https://img.shields.io/badge/Status-Development-orange.svg
 .. |UIlanguage badge| image:: https://img.shields.io/badge/UI-French-9cf.svg
+
+.. |db_model_img| image:: p8_purbeurre_db.png
