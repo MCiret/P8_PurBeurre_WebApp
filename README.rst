@@ -142,15 +142,15 @@ Database
 OPEN FOOD FACTS API
 ===================
 
-GET query --> see research/management/commands/filldb.py --> build_get_request() static method (called by handle() method)
+**GET query** see research/management/commands/filldb.py --> build_get_request() static method (called by handle() method)
 
-**warning** if you modify the fields parameter then you will have to adapt the front-end part of the application.
+**Warning** if you modify the fields parameter then you will have to adapt the front-end part of the application.
 
-PARAMS values --> research/management/off_research_params.json.
-NB : each time filldb command is runned, the page_nb parameter is incremented ==> to get new food products
+**PARAMS values** see research/management/off_research_params.json
+*NB : each time filldb command is runned, the page_nb parameter is incremented ==> to get new food products with next run..*
 
 
-.. |vPython badge| image:: https://img.shields.io/badge/Python-3.9-blue.svg
+.. |vPython badge| image:: https://img.shields.io/badge/Python-3.11-blue.svg
 .. |vBootstrap badge| image:: https://img.shields.io/badge/Bootstrap-5-purple.svg
 
 .. |Status badge| image:: https://img.shields.io/badge/Status-Development-orange.svg
