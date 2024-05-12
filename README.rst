@@ -20,9 +20,8 @@ TABLE OF CONTENTS
 2. `INSTALLATION`_
     * `Application`_
     * `Database`_
-    * `Required libraries`_
 
-3. `OPEN FOOD FACTS API USAGE`_
+3. `OPEN FOOD FACTS API`_
 
 DESCRIPTION
 ===========
@@ -124,35 +123,21 @@ Database
 
 .. _db_settingup:
 
-1) Install your favorite SGDB.
-2) Create a database and Set up variable DATABASES (project_config/settings.py) with your database connection parameters.
+1) Install your favorite SGDB + Create an empty database
+2) Set up Django project : the DATABASES variable (project_config/settings.py)
 3) Database migration (i.e tables creation) : (UNIX) ``$ python manage.py migrate`` (DOS) ``$ py manage.py migrate``
-4) Run personalised Django command to request Open Food Facts API and insert food products (and categories) in database : (UNIX) ``$ python manage.py filldb`` (DOS) ``$ py manage.py filldb``
-
-**note:** you can modify which data are requested from Open Food Facts API.
+4) Fill db : run personalised Django command to request Open Food Facts API and insert food products (and categories) in database : (UNIX) ``$ python manage.py filldb`` (DOS) ``$ py manage.py filldb``
 
 
-Required libraries
-------------------
+OPEN FOOD FACTS API
+===================
 
-Python libraries to install in your virtual environment : $ pip install -r requirements.txt
-
-
-OPEN FOOD FACTS API USAGE
-=========================
-
-See research/management/commands/filldb.py
-
-The build_get_request() static method (called by handle() method) shows you the used request.
-https://documenter.getpostman.com/view/8470508/SVtN3Wzy#58efae40-73c3-4907-9a88-785faff6ffb1
+GET query --> see research/management/commands/filldb.py --> build_get_request() static method (called by handle() method)
 
 **warning** if you modify the fields parameter then you will have to adapt the front-end part of the application.
 
-
-Nevertheless, there is no problem if you would like to modify categories, page_size (number of product per page) and/or page (number of page per request).
-The categories tags and page_nb are gotten from research/management/off_research_params.json. This file is modified (rewritten) each time the filldb command is used, to "feed" the database, the page_nb parameter is incremented.
-
-**note** categories tags have to exists in OFF. They are not case sensitive but you have to use underscore te replace whitespace characters.
+PARAMS values --> research/management/off_research_params.json.
+NB : each time filldb command is runned, the page_nb parameter is incremented ==> to get new food products
 
 
 .. |vPython badge| image:: https://img.shields.io/badge/Python-3.9-blue.svg
