@@ -28,7 +28,7 @@ class ResearchFormTest(StaticLiveServerTestCase):
         # submit form
         submit.send_keys(Keys.RETURN)
 
-        time.sleep(10)
+        time.sleep(2)
 
         # check result; page source looks at entire html document
         assert 'Vous avez saisi : ' + keywords in self.selenium.page_source

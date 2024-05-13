@@ -1,7 +1,7 @@
 from django.test import TestCase, TransactionTestCase
 from unittest import mock
 import research.substitutes_research as subr
-import filldb_tests_module.crud_functions_to_test as crud
+import filldb_tests_module.crud_func_for_testing as crud
 from research.models import Food, Category
 
 
@@ -138,3 +138,25 @@ class SubstitutesResearchTestsOnlySQL(TransactionTestCase):
         subr.look_for_foods_matching_user_search("d3", result)
         self.assertEqual(result["data"]['perfect_match'],
                          Food.objects.get(barcode="3"))
+
+    @mock.patch('research.substitutes_research.look_for_substitutes')
+    def test_sql_of_research_in_db(self, mock_look_sub):
+        mock_look_sub.return_value = "substitutes"
+
+        # If called with the research_keywords argument, only 1 test to do :
+        # categories that will be used for look_for_substitutes() are well ranked.
+        subr.db_food_search(search_keywords="d3")
+        ranked_categories_ids = [Category.objects.get(name="c1").id,
+                                 Category.objects.get(name="c2").id,
+                                 Category.objects.get(name="c3").id]
+        self.assertEqual(mock_look_sub.call_args.args[0], ranked_categories_ids)
+
+        # If called with the food_barcode argument, 2 tests to do :
+        # 1) the Food.objects.get() returned the good researched food,
+        # 2) the same as above.
+        self.assertEqual(subr.db_food_search(food_barcode="3")["data"]["perfect_match"],
+                         Food.objects.get(barcode=3))
+        ranked_categories_ids = [Category.objects.get(name="c1").id,
+                                 Category.objects.get(name="c2").id,
+                                 Category.objects.get(name="c3").id]
+        self.assertEqual(mock_look_sub.call_args.args[0], ranked_categories_ids)

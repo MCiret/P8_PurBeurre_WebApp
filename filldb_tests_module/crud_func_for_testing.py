@@ -6,7 +6,7 @@ from typing import Union
 ####################################################################################################################
 # /!\ Retour du mentor/validateur lors de la soutenance du projet 8 (concernant cette appli django) /!\            #
 #                                                                                                                  #
-# Ce fichier crud_functions_to_tests.py n'est pas une bonne idée, cela contourne ce que Django avait prévu :       #
+# Ce fichier crud_func_for_testings.py n'est pas une bonne idée, cela contourne ce que Django avait prévu :       #
 #   - fixtures Django permettant d'automatiquement peupler la BD de tests à partir de fichier JSON..               #
 #     OU                                                                                                           #
 #   - définir une classe qui remplit la BD avec des données lorsqu'elle est instanciée                             #

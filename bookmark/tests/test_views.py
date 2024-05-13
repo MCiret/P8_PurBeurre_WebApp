@@ -1,6 +1,6 @@
 from django.test import TestCase, TransactionTestCase
 from django.urls import reverse
-import filldb_tests_module.crud_functions_to_test as crud
+import filldb_tests_module.crud_func_for_testing as crud
 
 
 class BookmarkViewsTests(TestCase):

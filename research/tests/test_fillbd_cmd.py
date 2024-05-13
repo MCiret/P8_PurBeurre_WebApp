@@ -58,7 +58,8 @@ class FilldbTestsExceptSQL(TestCase):
             "f2": "val2",
             "f3": "val3",
             "f4": "val4",
-            'categories_tags': ["c1", "c2", "c3"]
+            'categories_tags': ["c1", "c2", "c3"],
+            'nutriscore_grade': 'a'
         }
         invalid_food_dict_one_field_missing = {
             "f1": "val1",
@@ -72,6 +73,14 @@ class FilldbTestsExceptSQL(TestCase):
             "f3": "val3",
             "f4": "val4",
             'categories_tags': ["c1", "c2"]
+        }
+        invalid_food_dict_unknown_nutriscore = {
+            "f1": "val1",
+            "f2": "val2",
+            "f3": "val3",
+            "f4": "val4",
+            'categories_tags': ["c1", "c2", "c3"],
+            'nutriscore_grade': 'unknown'
         }
 
         self.assertTrue(Command.is_valid_food(valid_food_dict))

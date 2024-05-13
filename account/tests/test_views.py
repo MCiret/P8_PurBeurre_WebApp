@@ -1,7 +1,7 @@
 from django.test import TestCase
 from unittest import mock
 from django.urls import reverse
-import filldb_tests_module.crud_functions_to_test as crud
+import filldb_tests_module.crud_func_for_testing as crud
 from account.models import User
 from account.views import UserAccountView
 
@@ -80,6 +80,6 @@ class AccountViewsTests(TestCase):
         crud.create_user("user_test@gmail.com", "titi6789")
         self.client.login(username="user_test@gmail.com", password="titi6789")
 
-        response_user_logged = self.client.get(reverse('account:user-logout'), follow=True)
+        response_user_logged = self.client.post(reverse('account:user-logout'), follow=True)
 
         self.assertContains(response_user_logged, "Du gras, oui, mais de qualité !", status_code=200)

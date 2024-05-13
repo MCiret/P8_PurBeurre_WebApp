@@ -34,7 +34,7 @@ This Web app has been developed during OpenClassrooms training course "Python Ap
 
 * 1st Django Web application
 * Follow client features and interface requirements (including pages prototypes using Bootstrap theme and style guide).
-* Test Driven Development
+* Tests : using unittest (including 1 selenium test) & following TDD approach
 * Database modeling
 * Get data from OpenFoodFacts API and populate database
 * User Account (login) management
@@ -133,7 +133,7 @@ Database
     - (UNIX) ``$ python manage.py migrate``
     - (DOS) ``$ py manage.py migrate``
 
-4) Fill db : run personalised Django command to request Open Food Facts API and insert food products (and categories) in database : 
+4) Fill db : run personalised Django command to request Open Food Facts API and insert food products (and categories) in database :
 
     - (UNIX) ``$ python manage.py filldb``
     - (DOS) ``$ py manage.py filldb``
