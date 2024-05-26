@@ -17,10 +17,13 @@ class Command(BaseCommand):
         """ Personalized command to run the OFF API requests and the database filling """
         params_dict = Command.get_params_dict_from_json("research/management/off_research_params.json")
         for category in params_dict['categories']:
+            print(f"Get {category} foods...")
             resp = requests.get(Command.build_get_request(category, params_dict['page']))
             if resp.status_code == 200:
                 resp_dict = resp.json()
+                print(f"API request resp = OK")
                 Command.save_foods_in_db(resp_dict)
+            print(f"...{category} foods DONE.")
         Command.update_json_page_number_param("research/management/off_research_params.json")
 
     @staticmethod
@@ -54,10 +57,13 @@ class Command(BaseCommand):
     def save_foods_in_db(off_api_resp_dict: dict):
         for food_dict in off_api_resp_dict["products"]:
             if Command.is_valid_food(food_dict):
+                print(f"Insert product {food_dict["product_name"]} into db...")
                 food = Food(food_dict["_id"], *list(food_dict.values())[2:])
                 try:
                     food.save()
+                    print(f"...OK")
                 except IntegrityError:
+                    print(f"...IntegrityError")
                     pass
                 # Ranks categories_tags from the most general to the most specific
                 # (see OFF API json response structure) :
