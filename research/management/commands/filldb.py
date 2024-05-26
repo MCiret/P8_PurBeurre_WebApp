@@ -11,20 +11,24 @@ class Command(BaseCommand):
     help = 'Requests OFF API to get some foods to fill the database.'
 
     REQUESTED_FIELDS = ('_id', 'product_name', 'nutriscore_grade', 'url',
-                        'image_front_url', 'image_nutrition_url', 'categories_tags')
+                        'image_front_url', 'categories_tags')
+
+    nb_inserted_food_products = 0
 
     def handle(self, *args, **options):
         """ Personalized command to run the OFF API requests and the database filling """
         params_dict = Command.get_params_dict_from_json("research/management/off_research_params.json")
+        db_nb_prod = len(Food.objects.all())
         for category in params_dict['categories']:
-            print(f"Get {category} foods...")
+            print(f"\nGet {category} foods...")
             resp = requests.get(Command.build_get_request(category, params_dict['page']))
             if resp.status_code == 200:
                 resp_dict = resp.json()
-                print(f"API request resp = OK")
                 Command.save_foods_in_db(resp_dict)
-            print(f"...{category} foods DONE.")
+            print(f"...{category} foods DONE.\n\n")
         Command.update_json_page_number_param("research/management/off_research_params.json")
+        print(f">>>>>>>>> RESULTS : {Command.nb_inserted_food_products} food products have been gotten from OFF database.")
+        print(f">>>>>>>>> RESULTS : {len(Food.objects.all()) - db_nb_prod} new food products have been inserted.")
 
     @staticmethod
     def get_params_dict_from_json(json_file: str) -> dict:
@@ -46,7 +50,7 @@ class Command(BaseCommand):
 
     @staticmethod
     def build_get_request(category, page_nb):
-        return f"https://fr.openfoodfacts.org/cgi/search.pl?action=process" \
+        return f"https://fr.openfoodfacts.org/api/v2/search?" \
                f"&tagtype_0=categories" \
                f"&tag_contains_0=contains" \
                f"&tag_0={category}" \
@@ -57,11 +61,18 @@ class Command(BaseCommand):
     def save_foods_in_db(off_api_resp_dict: dict):
         for food_dict in off_api_resp_dict["products"]:
             if Command.is_valid_food(food_dict):
-                print(f"Insert product {food_dict["product_name"]} into db...")
-                food = Food(food_dict["_id"], *list(food_dict.values())[2:])
+                food = Food(
+                    food_dict["_id"],
+                    image_url=food_dict.get("image_front_url"),
+                    nutriment_url=food_dict.get("image_nutrition_url", ""),
+                    nutri_score=food_dict.get("nutriscore_grade"),
+                    name=food_dict.get("product_name"),
+                    off_url=food_dict.get("url")
+                )
                 try:
                     food.save()
-                    print(f"...OK")
+                    print(f"*** {food_dict['product_name']} ==> DB insertion OK")
+                    Command.nb_inserted_food_products += 1
                 except IntegrityError:
                     print(f"...IntegrityError")
                     pass
@@ -79,6 +90,8 @@ class Command(BaseCommand):
                     # ...else the new category had been inserted then make the food relation :
                     else:
                         cat.foods.add(food, through_defaults={'category_rank': i+1})
+            else:
+                print(f"!!! INVALID product --> {food_dict} - Can't be inserted into DB.")
 
     @staticmethod
     def is_valid_food(food_dict: dict) -> bool:

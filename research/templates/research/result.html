@@ -3,9 +3,7 @@
 
 {% block header %}
     <header class="nomast">
-        {{ data }}
         <div class="container px-4 px-lg-5 h-100">
-            {{ context }}
             {% if valid %}
                 {% if not data.perfect_match %}
                     <div class="text-moules font-weight-bold text-center">Vous avez saisi : {{ data.search_keywords }}</div>
