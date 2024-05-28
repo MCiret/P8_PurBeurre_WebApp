@@ -6,7 +6,7 @@
 |Status badge| |UIlanguage badge| |vPython badge| |vBootstrap badge|
 
 
-🔗 ❌ https://pur-beurre.p8.mc-dapy.fr/
+🔗 https://pur-beurre.p8.mc-dapy.fr/
 
 *****************
 TABLE OF CONTENTS
