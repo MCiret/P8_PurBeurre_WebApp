@@ -33,11 +33,11 @@ This Web app has been developed during OpenClassrooms training course "Python Ap
 **GOAL** :
 
 * 1st Django Web application
-* Follow client features and interface requirements (including pages prototypes using Bootstrap theme and style guide).
-* Tests : using unittest (including 1 selenium test) & following TDD approach
+* Specifications for features and interface (style guide, pages prototypes and the Bootstrap theme)
+* Tests : using unittest (including 1 functionnal (Selenium) test) with TDD approach
 * Database modeling
-* Get data from OpenFoodFacts API and populate database
-* User Account (login) management
+* Get data from OpenFoodFacts API, populate database and use it for searching..
+* User authentication, acocunt and "bookmarking" features
 
 Summary
 -------
