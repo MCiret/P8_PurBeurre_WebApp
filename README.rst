@@ -13,7 +13,7 @@ TABLE OF CONTENTS
 *****************
 
 1. `DESCRIPTION`_
-    * `Learning project`_
+    * `Learning goals`_
     * `Summary`_
     * `Features`_
 
@@ -27,7 +27,7 @@ DESCRIPTION
 ===========
 
 Learning goals
-----------------
+--------------
 This Web app has been developed during OpenClassrooms training course "Python Application Development".
 
 * 1st Django Web application
