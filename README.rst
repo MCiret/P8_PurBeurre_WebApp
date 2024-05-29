@@ -26,11 +26,9 @@ TABLE OF CONTENTS
 DESCRIPTION
 ===========
 
-Learning project
+Learning goals
 ----------------
 This Web app has been developed during OpenClassrooms training course "Python Application Development".
-
-**GOAL** :
 
 * 1st Django Web application
 * Specifications for features and interface (style guide, pages prototypes and the Bootstrap theme)
@@ -41,11 +39,10 @@ This Web app has been developed during OpenClassrooms training course "Python Ap
 
 Summary
 -------
-This Web application asks user for searching a food product to obtain more healthy alternatives based on nutriscore value.
-The user could log in to bookmark a food product.
+User could search for a food product to obtain more healthy alternatives based on nutriscore value.
+User could log in to bookmark its favourites food products.
 
-Food products are weekly collected from Open Food Facts (OFF) french database (requested via the OFF search API).
-The API request response is a json data then parsed, reorganized and inserted in a database.
+Food products are collected from Open Food Facts (OFF) french database (requested via the OFF search API).
 
 *NB: this source code is for french User Interface.*
 
