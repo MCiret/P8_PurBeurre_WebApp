@@ -3,7 +3,13 @@
 =====================
 **Searching for food substitution in Open Food Facts french database**
 
-|Status badge| |UIlanguage badge| |vPython badge| |vBootstrap badge| |OCDAPY badge|
+|OCDAPY badge|
+
+|Status badge| |UIlanguage badge|
+
+|vPython badge| |vDjango badge| |DB badge|
+
+|vBootstrap badge|
 
 
 🔗 https://pur-beurre.p8.mc-dapy.fr/
@@ -152,7 +158,7 @@ OPEN FOOD FACTS API
 
 .. |vPython badge| image:: https://img.shields.io/badge/Python-3.11-blue.svg
 .. |vDjango badge| image:: https://img.shields.io/badge/Django-3.11-0c4b33.svg
-.. |vDB badge| image:: https://img.shields.io/badge/DB-PostgreSQL-336791.svg
+.. |DB badge| image:: https://img.shields.io/badge/DB-PostgreSQL-336791.svg
 .. |vBootstrap badge| image:: https://img.shields.io/badge/Bootstrap-5-purple.svg
 
 
