@@ -159,6 +159,6 @@ OPEN FOOD FACTS API
 .. |Status badge| image:: https://img.shields.io/badge/Status-Production-green.svg
 .. |UIlanguage badge| image:: https://img.shields.io/badge/UI-French-aeb6bf.svg
 
-.. |OCDAPY badge| image:: https://img.shields.io/badge/Learning_Project-OpenClassrooms-e74c3c .svg
+.. |OCDAPY badge| image:: https://img.shields.io/badge/Learning_Project-OpenClassrooms-e74c3c.svg
 
 .. |db_model_img| image:: p8_purbeurre_db.png
