@@ -3,7 +3,7 @@
 =====================
 **Searching for food substitution in Open Food Facts french database**
 
-|Status badge| |UIlanguage badge| |vPython badge| |vBootstrap badge|
+|Status badge| |UIlanguage badge| |vPython badge| |vBootstrap badge| |OCDAPY badge|
 
 
 🔗 https://pur-beurre.p8.mc-dapy.fr/
@@ -41,7 +41,7 @@ This Web app has been developed during OpenClassrooms training course "Python Ap
 
 Summary
 -------
-This Web application asks user for researching a food product to obtain more healthy alternatives based on nutriscore value.
+This Web application asks user for searching a food product to obtain more healthy alternatives based on nutriscore value.
 The user could log in to bookmark a food product.
 
 Food products are weekly collected from Open Food Facts (OFF) french database (requested via the OFF search API).
@@ -52,12 +52,12 @@ The API request response is a json data then parsed, reorganized and inserted in
 Features
 --------
 
-1) User (logged or not (see below)) researches a food product in order to obtain an healthy substitute food.
+1) User (logged or not (see below)) searches a food product in order to obtain an healthy substitute food.
 
-    1.1) User could use research field (present in all pages header and in home page) to enter keywords and display the result page.
+    1.1) User could use search field (present in all pages header and in home page) to enter keywords and display the result page.
 
-        - If only 1 food product matches the research keywords then substitutes foods are displayed.
-        - Else if many food products match the research keywords then they are listed to be chosen by user and then substitutes foods are displayed.
+        - If only 1 food product matches the search keywords then substitutes foods are displayed.
+        - Else if many food products match the search keywords then they are listed to be chosen by user and then substitutes foods are displayed.
 
     1.2) Click on substitute food picture to display the details page and its Open Food Facts url.
 
@@ -156,7 +156,9 @@ OPEN FOOD FACTS API
 .. |vPython badge| image:: https://img.shields.io/badge/Python-3.11-blue.svg
 .. |vBootstrap badge| image:: https://img.shields.io/badge/Bootstrap-5-purple.svg
 
-.. |Status badge| image:: https://img.shields.io/badge/Status-Development-orange.svg
-.. |UIlanguage badge| image:: https://img.shields.io/badge/UI-French-9cf.svg
+.. |Status badge| image:: https://img.shields.io/badge/Status-Production-green.svg
+.. |UIlanguage badge| image:: https://img.shields.io/badge/UI-French-aeb6bf.svg
+
+.. |OCDAPY badge| image:: https://img.shields.io/badge/Learning_Project-OpenClassrooms-e74c3c .svg
 
 .. |db_model_img| image:: p8_purbeurre_db.png
