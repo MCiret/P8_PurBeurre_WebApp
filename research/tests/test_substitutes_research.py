@@ -33,7 +33,7 @@ class SubstitutesResearchTestsExceptSQL(TestCase):
             "error": None,
             "data": {
                 "search_keywords": "",
-                "perfect_match" : None,
+                "perfect_match": None,
                 "substitutes_foods": None
             }
         }

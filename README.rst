@@ -38,10 +38,16 @@ This Web app has been developed during OpenClassrooms training course "Python Ap
 
 * 1st Django Web application
 * Specifications for features and interface (style guide, pages prototypes and the Bootstrap theme)
+<br>
 * Tests : using unittest (including 1 functionnal (Selenium) test) with TDD approach
+* PEP8 & PEP257 (code quality tools : Flake8, Black)
+<br>
 * Database modeling
 * Get data from OpenFoodFacts API, populate database and use it for searching..
-* User authentication, acocunt and "bookmarking" features
+<br>
+* User authentication, account and "bookmarking" features
+<br>
+* Deployed on VPS (Scaleway)
 
 Summary
 -------
@@ -157,7 +163,9 @@ OPEN FOOD FACTS API
 
 
 .. |vPython badge| image:: https://img.shields.io/badge/Python-3.11-blue.svg
-.. |vDjango badge| image:: https://img.shields.io/badge/Django-3.11-0c4b33.svg
+.. |vDjango badge| image:: https://img.shields.io/badge/Django-5-0c4b33.svg
+.. |vBlack badge| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
 .. |DB badge| image:: https://img.shields.io/badge/DB-PostgreSQL-336791.svg
 .. |vBootstrap badge| image:: https://img.shields.io/badge/Bootstrap-5-purple.svg
 
