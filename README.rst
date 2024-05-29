@@ -151,7 +151,10 @@ OPEN FOOD FACTS API
 
 
 .. |vPython badge| image:: https://img.shields.io/badge/Python-3.11-blue.svg
+.. |vDjango badge| image:: https://img.shields.io/badge/Django-3.11-0c4b33.svg
+.. |vDB badge| image:: https://img.shields.io/badge/DB-PostgreSQL-336791.svg
 .. |vBootstrap badge| image:: https://img.shields.io/badge/Bootstrap-5-purple.svg
+
 
 .. |Status badge| image:: https://img.shields.io/badge/Status-Production-green.svg
 .. |UIlanguage badge| image:: https://img.shields.io/badge/UI-French-aeb6bf.svg
